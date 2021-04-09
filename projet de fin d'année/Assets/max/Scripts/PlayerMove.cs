@@ -12,7 +12,12 @@ public class PlayerMove : MonoBehaviour
 
     private int timer = 0;
     private float rotateDown = 1;
-    public float velocity;
+    private float velocity;
+
+    private float velocityX = 0;
+    private float velocityY = 0;
+    private float velocityZ = 0;
+
 
     private void Start()
     {
@@ -51,7 +56,42 @@ public class PlayerMove : MonoBehaviour
             rotateDown = 1;
         }
 
-        Debug.Log(velocity);
+
+
+
+        if (velocityX >= 0)
+        {
+            velocityX = rb.velocity.x;
+        }
+        else
+        {
+            velocityX = -rb.velocity.x;
+        }
+
+        if (velocityY >= 0)
+        {
+            velocityY = rb.velocity.y;
+        }
+        else
+        {
+            velocityY = -rb.velocity.y;
+        }
+
+        if (velocityZ >= 0)
+        {
+            velocityZ = rb.velocity.z;
+        }
+        else
+        {
+            velocityZ = -rb.velocity.z;
+        }
+
+        velocity = Mathf.Sqrt(velocityX * velocityX + velocityY * velocityY + velocityZ * velocityZ) / 15;
+
+        if (velocity < 0.1f)
+        {
+            velocity = 0.1f;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,7 +99,6 @@ public class PlayerMove : MonoBehaviour
         if(collision.collider.gameObject.layer != LayerMask.NameToLayer("Garbage"))
         {
             isHitted = true;
-            velocity = MathF.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z);
         }
     }
 }
