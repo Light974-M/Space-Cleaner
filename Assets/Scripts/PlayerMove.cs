@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         {
             rb.AddForce(-rb.velocity * 20);
         }
-
+        Debug.Log(velocity);
 
         if(isHitted)
         {
