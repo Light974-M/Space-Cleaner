@@ -5,14 +5,14 @@ using UnityEngine;
 public class SpaceShipController : MonoBehaviour
 {
     public float speed;
-    //public Transform[] waypoints;
+    public Transform[] waypoints;
 
     public Transform target;
-    //private int destPoint = 0;
+    private int destPoint = 0;
 
     void Start()
     {
-        //target = waypoints[0];
+        target = waypoints[0];
     }
 
     void Update()
@@ -24,15 +24,30 @@ public class SpaceShipController : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             // Si la target n'est pas la dernière de la liste
-            /*if(target != waypoints[waypoints.Length-1])
+            if(target != waypoints[waypoints.Length-1])
             {
                 destPoint = destPoint + 1;
                 target = waypoints[destPoint];
             }
-            else*/
+            else
             {
                 // Si c'est le dernier on détruit l'objet
                 GameObject.Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("Collision");
+        if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
+        {
+            //Debug.Log("détecté");
+            SpaceShipController frontShipController = collision.gameObject.GetComponent<SpaceShipController>();
+            if(frontShipController.speed < speed)
+            {
+                speed = frontShipController.speed;
+                //Debug.Log("appliqué");
             }
         }
     }
