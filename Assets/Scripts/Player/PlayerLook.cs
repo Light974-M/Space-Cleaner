@@ -21,16 +21,30 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
+
+        Look();
+
+        if(!StatController.lastChance)
+        {
+            Flip();
+        }
+    }
+
+    private void Look()
+    {
         float mouseX = Input.GetAxis("Mouse X") * horizontalSpeed;
         float mouseY = Input.GetAxis("Mouse Y") * verticalSpeed;
 
         transform.Rotate(new Vector3(-mouseY, mouseX, 0));
+    }
 
-        if(Input.GetKey(KeyCode.D))
+    private void Flip()
+    {
+        if (Input.GetKey(KeyCode.D))
         {
             wichSide = 0;
 
-            if(timer < 100)
+            if (timer < 100)
             {
                 turnSpeed = turnSpeed * 1.02f;
                 timer++;
@@ -41,7 +55,7 @@ public class PlayerLook : MonoBehaviour
         {
             wichSide = 1;
 
-            if(timer < 100)
+            if (timer < 100)
             {
                 turnSpeed = turnSpeed * 1.02f;
                 timer++;
@@ -50,7 +64,7 @@ public class PlayerLook : MonoBehaviour
         }
         else
         {
-            if(wichSide == 0)
+            if (wichSide == 0)
             {
                 if (timer > 1)
                 {
@@ -80,6 +94,5 @@ public class PlayerLook : MonoBehaviour
                 }
             }
         }
-
     }
 }
