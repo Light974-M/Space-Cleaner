@@ -30,7 +30,7 @@ public class StatController : MonoBehaviour
             Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
             timer++;
 
-            if (timer > 1000)
+            if (timer > 500)
             {
                 lastChance = false;
             }

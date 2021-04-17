@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     private int timer2 = 0;
     private float rotateDown = 1;
     private float dashCoolDown = 1;
-    private bool isGodMod = false;
+    public static bool isGodMod = false;
     private bool isDashing = false;
 
     //initialisation des objets(vecteurs).
