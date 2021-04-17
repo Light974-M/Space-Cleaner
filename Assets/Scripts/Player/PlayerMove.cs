@@ -23,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     //le start.
     private void Start()
     {
-        
+        Application.targetFrameRate = 60;
     }
 
     //le update, principale boucle réappeller a chaques rafraichissements.
@@ -61,18 +61,18 @@ public class PlayerMove : MonoBehaviour
         {
             if (rb.velocity.magnitude < 20)
             {
-                rb.AddForce(transform.forward * 200);
+                rb.AddForce(transform.forward * 400);
             }
             else
             {
-                rb.AddForce(-rb.velocity * 20);
+                rb.AddForce(-rb.velocity * 40);
             }
         }
         else
         {
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                rb.AddForce(-rb.velocity * 40);
+                rb.AddForce(-rb.velocity * 80);
             }
         }
     }
@@ -107,9 +107,12 @@ public class PlayerMove : MonoBehaviour
         }
         if (timer == 300)
         {
-            camMain.GetComponent<Animator>().enabled = false;
             camMain.fieldOfView = 60;
             dashCoolDown = 1;
+        }
+        if(timer == 200)
+        {
+            camMain.GetComponent<Animator>().enabled = false;
         }
 
         timer++;

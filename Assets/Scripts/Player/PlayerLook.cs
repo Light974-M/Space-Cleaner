@@ -46,7 +46,7 @@ public class PlayerLook : MonoBehaviour
 
             if (timer < 100)
             {
-                turnSpeed = turnSpeed * 1.02f;
+                turnSpeed = turnSpeed * 1.04f;
                 timer++;
             }
             transform.Rotate(0, 0, -turnSpeed);
@@ -57,7 +57,7 @@ public class PlayerLook : MonoBehaviour
 
             if (timer < 100)
             {
-                turnSpeed = turnSpeed * 1.02f;
+                turnSpeed = turnSpeed * 1.04f;
                 timer++;
             }
             transform.Rotate(0, 0, turnSpeed);
@@ -68,7 +68,7 @@ public class PlayerLook : MonoBehaviour
             {
                 if (timer > 1)
                 {
-                    turnSpeed = turnSpeed * 0.98f;
+                    turnSpeed = turnSpeed * 0.96f;
                     transform.Rotate(0, 0, -turnSpeed);
                     timer--;
                 }
@@ -83,7 +83,7 @@ public class PlayerLook : MonoBehaviour
             {
                 if (timer > 1)
                 {
-                    turnSpeed = turnSpeed * 0.98f;
+                    turnSpeed = turnSpeed * 0.96f;
                     transform.Rotate(0, 0, turnSpeed);
                     timer--;
                 }
