@@ -21,12 +21,14 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
-
-        Look();
-
-        if(!StatController.lastChance)
+        if (!StatController.isGameOver)
         {
-            Flip();
+            Look();
+
+            if (!StatController.lastChance)
+            {
+                Flip();
+            }
         }
     }
 
