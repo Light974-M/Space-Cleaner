@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1504118278062040349}
   - component: {fileID: 8902812844507593483}
   - component: {fileID: 7003829709765457439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Garbage1
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504118278062040348}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.516994, y: -27.471973, z: 61.55569}
   m_LocalScale: {x: 2.3173, y: 2.3173, z: 2.3173}
   m_Children: []

@@ -35,7 +35,7 @@ public class MenuButtonController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("max");
+        SceneManager.LoadScene("Level1");
     }
 
     public void SettingsGame()

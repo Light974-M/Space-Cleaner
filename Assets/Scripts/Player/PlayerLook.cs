@@ -21,7 +21,7 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
-        if (!StatController.isGameOver)
+        if (!StatController.isGameOver && !LevelManager.isPause)
         {
             Look();
 

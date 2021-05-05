@@ -8,19 +8,39 @@ public class LevelManager : MonoBehaviour
     public GameObject fondGameOver;
     public GameObject wastedGameOver;
     public GameObject buttonGameOver;
+    public GameObject fondPause;
+    public GameObject buttonResume;
+    public GameObject buttonQuitToMenu;
+    public GameObject buttonQuitToWindows;
+    public GameObject buttonYes;
+    public GameObject buttonNo;
+    public GameObject textMenuQuit;
+    public GameObject textWindowsQuit;
 
     private int timer = 0;
     private int timer2 = 0;
     private float fixedDeltaTime;
 
+    public static bool isPause = false;
+
     void Start()
     {
-        this.fixedDeltaTime = Time.fixedDeltaTime;
+        Time.timeScale = 1;
+        this.fixedDeltaTime = 0.02f;
+
+        if (isPause)
+        {
+            SwitchPause();
+        }
     }
 
     void Update()
     {
-        lastChanceMethod();
+
+        if(!isPause)
+        {
+            lastChanceMethod();
+        }
 
         if (StatController.isGameOver)
         {
@@ -51,6 +71,49 @@ public class LevelManager : MonoBehaviour
             }
 
             timer2++;
+        }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            SwitchPause();
+        }
+
+        if(PauseButtonController.isResuming)
+        {
+            SwitchPause();
+            PauseButtonController.isResuming = false;
+        }
+
+        if(isPause)
+        {
+            if (PauseButtonController.sureToQuitState == 0)
+            {
+                buttonResume.SetActive(true);
+                buttonQuitToMenu.SetActive(true);
+                buttonQuitToWindows.SetActive(true);
+                buttonYes.SetActive(false);
+                buttonNo.SetActive(false);
+                textMenuQuit.SetActive(false);
+                textWindowsQuit.SetActive(false);
+            }
+            else if (PauseButtonController.sureToQuitState == 1)
+            {
+                buttonResume.SetActive(false);
+                buttonQuitToMenu.SetActive(false);
+                buttonQuitToWindows.SetActive(false);
+                buttonYes.SetActive(true);
+                buttonNo.SetActive(true);
+                textMenuQuit.SetActive(true);
+            }
+            else if (PauseButtonController.sureToQuitState == 2)
+            {
+                buttonResume.SetActive(false);
+                buttonQuitToMenu.SetActive(false);
+                buttonQuitToWindows.SetActive(false);
+                buttonYes.SetActive(true);
+                buttonNo.SetActive(true);
+                textWindowsQuit.SetActive(true);
+            }
         }
     }
 
@@ -91,6 +154,39 @@ public class LevelManager : MonoBehaviour
             Time.timeScale = 1;
             Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
             timer = 0;
+        }
+    }
+
+    public void SwitchPause()
+    {
+        if (isPause)
+        {
+            isPause = false;
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            fondPause.SetActive(false);
+            buttonQuitToMenu.SetActive(false);
+            buttonQuitToWindows.SetActive(false);
+            buttonResume.SetActive(false);
+            buttonYes.SetActive(false);
+            buttonNo.SetActive(false);
+            textMenuQuit.SetActive(false);
+            textWindowsQuit.SetActive(false);
+            PauseButtonController.sureToQuitState = 0;
+        }
+        else
+        {
+            isPause = true;
+            Time.timeScale = 0f;
+            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            fondPause.SetActive(true);
+            buttonQuitToMenu.SetActive(true);
+            buttonQuitToWindows.SetActive(true);
+            buttonResume.SetActive(true);
         }
     }
 }

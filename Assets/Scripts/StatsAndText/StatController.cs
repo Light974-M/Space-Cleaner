@@ -13,13 +13,29 @@ public class StatController : MonoBehaviour
     public static bool isGameOver = false;
     public static bool stabilization = false;
 
+    public Transform target;
+    public Transform targetVelocity;
+
+    public int timer = 0;
+
 
     private void Update()
     {
         if(stabilization)
         {
-            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 40);
-            GetComponent<Rigidbody>().AddTorque(-10, -10, -10);
+            if(timer > 150)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                stabilization = false;
+                Debug.Log("here");
+            }
+            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
+            GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
+            timer++;
+        }
+        else
+        {
+            timer = 0;
         }
     }
 
@@ -34,8 +50,8 @@ public class StatController : MonoBehaviour
         {
             loseLife(8);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 10000);
-            GetComponent<Rigidbody>().AddTorque(1000, 1000, 1000);
+            GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
+            GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
             stabilization = true;
         }
     }

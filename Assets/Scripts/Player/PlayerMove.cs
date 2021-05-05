@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
     //le update, principale boucle réappeller a chaques rafraichissements.
     private void Update()
     {
-        if(!StatController.isGameOver)
+        if(!StatController.isGameOver && !LevelManager.isPause)
         {
             MoveAndStabilize();
 

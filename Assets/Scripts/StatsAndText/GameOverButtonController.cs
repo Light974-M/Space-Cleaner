@@ -26,7 +26,7 @@ public class GameOverButtonController : MonoBehaviour
         StatController.isGameOver = false;
         StatController.lastChance = false;
         StatController.lastChanceInit = false;
-        SceneManager.LoadScene("max");
+        SceneManager.LoadScene("Level1");
     }
 
     void Quit()
