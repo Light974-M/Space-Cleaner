@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 3516833750339308548}
   - component: {fileID: 2151701461927836850}
   m_Layer: 9
-  m_Name: Ship 1
+  m_Name: Ship 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -239,7 +239,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8d0c29b0d9082b439c89873903da865, type: 2}
+  - {fileID: 2100000, guid: 3373e3af19f837745b6e2c076b09eaf6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
