@@ -8,14 +8,19 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody rb;
     public Transform garbage;
     public Camera camMain;
+    public static GameObject player;
 
     //initialisation des variables numériques.
     private int timer = 0;
     private int timer2 = 0;
+    private int timer3 = 0;
     private float rotateDown = 1;
     private float dashCoolDown = 1;
-    private bool isGodMod = false;
+    public static bool isGodMod = false;
     private bool isDashing = false;
+    private bool isLastChanceDashing = false;
+    private bool lastChanceDashFirst = true;
+    private int valueOfLastChanceDash = 0;
 
     //initialisation des objets(vecteurs).
     private Vector3 memoVelocity;
@@ -24,34 +29,68 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
+        player = gameObject;
     }
 
     //le update, principale boucle réappeller a chaques rafraichissements.
     private void Update()
     {
-
-        MoveAndStabilize();
-
-        if (!isGodMod)
+        if(!StatController.isGameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            MoveAndStabilize();
+
+            if (!isGodMod && !StatController.lastChance)
             {
-                isDashing = true;
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    isDashing = true;
+                }
             }
-        }
 
-        if (isDashing)
-        {
-            Dash();
+            if (isDashing)
+            {
+                Dash();
+            }
+            else
+            {
+                timer = 0;
+            }
+
+            GodMod();
+
+            if (StatController.lastChance)
+            {
+                if (Input.GetKeyDown(KeyCode.D) && lastChanceDashFirst)
+                {
+                    lastChanceDashFirst = false;
+                    isLastChanceDashing = true;
+                    valueOfLastChanceDash = 1000000;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Q) && lastChanceDashFirst)
+                {
+                    lastChanceDashFirst = false;
+                    isLastChanceDashing = true;
+                    valueOfLastChanceDash = -1000000;
+                }
+            }
+            else
+            {
+                isLastChanceDashing = false;
+                lastChanceDashFirst = true;
+            }
+
+            if (isLastChanceDashing)
+            {
+                LastChanceDash(valueOfLastChanceDash);
+            }
         }
         else
         {
-            timer = 0;
+            isDashing = false;
+            camMain.fieldOfView = 60;
+            camMain.GetComponent<Animator>().enabled = false;
         }
-
-        GodMod();
-
-        
     }
 
     //la fonction de déplacement et de stabilisation.
@@ -80,6 +119,14 @@ public class PlayerMove : MonoBehaviour
     //la fonction de dash.
     private void Dash()
     {
+        if (StatController.lastChance)
+        {
+            isDashing = false;
+            camMain.fieldOfView = 60;
+            camMain.GetComponent<Animator>().enabled = false;
+            rb.AddForce(-rb.velocity * 8000);
+        }
+
         if (timer == 0)
         {
             camMain.GetComponent<Animator>().enabled = true;
@@ -172,16 +219,55 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void lastChanceDash()
+    private void LastChanceDash(int valueOfLastChanceDash)
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if (timer3 == 0)
         {
-
+            camMain.GetComponent<Animator>().enabled = true;
+            memoVelocity = rb.velocity;
+            rb.AddForce(transform.right * valueOfLastChanceDash);
+        }
+        if (timer3 >= 200 && timer < 300)
+        {
+            rb.AddForce(-rb.velocity * 80);
+        }
+        if (timer3 > 1800)
+        {
+            isLastChanceDashing = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (timer3 > 0 && timer3 < 50)
         {
-
+            camMain.fieldOfView += 1f;
         }
+
+        if (timer3 > 150 && timer3 < 300)
+        {
+            camMain.fieldOfView -= dashCoolDown;
+            dashCoolDown = dashCoolDown / 1.02f;
+        }
+        if (timer3 == 300)
+        {
+            camMain.fieldOfView = 60;
+            dashCoolDown = 1;
+        }
+        if (timer3 == 200)
+        {
+            camMain.GetComponent<Animator>().enabled = false;
+        }
+        
+        timer3++;
+    }
+
+    public static void GameOverAutoRotate()
+    {
+        //player.transform.localEulerAngles += new Vector3(1, 1, 1);
+    }
+
+    public static void GameOverMoves()
+    {
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        player.GetComponent<Rigidbody>().AddForce(-player.GetComponent<Rigidbody>().velocity * 40000);
+        player.GetComponent<Rigidbody>().AddTorque(1000, 1000, 1000);
     }
 }

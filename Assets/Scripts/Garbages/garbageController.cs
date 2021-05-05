@@ -21,6 +21,17 @@ public class garbageController : MonoBehaviour
     void Update()
     {
         Grab();
+
+        if(PlayerMove.isGodMod)
+        {
+            ParticleSystem.EmissionModule emission = gameObject.GetComponent<ParticleSystem>().emission;
+            emission.enabled = true;
+        }
+        else
+        {
+            ParticleSystem.EmissionModule emission = gameObject.GetComponent<ParticleSystem>().emission;
+            emission.enabled = false;
+        }
     }
 
     void OnMouseDown()
