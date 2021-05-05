@@ -11,16 +11,16 @@ public class StatController : MonoBehaviour
     public static bool lastChance = false;
     public static bool lastChanceInit = false;
     public static bool isGameOver = false;
-    
+    public static bool stabilization = false;
 
-    void Start()
+
+    private void Update()
     {
-
-    }
-
-    void Update()
-    {
-
+        if(stabilization)
+        {
+            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 40);
+            GetComponent<Rigidbody>().AddTorque(-10, -10, -10);
+        }
     }
 
     private Color Color(int v1, int v2, int v3, double v4)
@@ -30,7 +30,14 @@ public class StatController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        loseLife(8);
+        if(collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
+        {
+            loseLife(8);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 10000);
+            GetComponent<Rigidbody>().AddTorque(1000, 1000, 1000);
+            stabilization = true;
+        }
     }
 
     public static void loseLife(int lose)

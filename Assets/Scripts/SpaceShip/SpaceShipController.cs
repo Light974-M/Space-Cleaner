@@ -64,7 +64,7 @@ public class SpaceShipController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
+        //Debug.Log("Hit");
         if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
             NavMeshAgent navMeshOtherShip = collision.collider.gameObject.GetComponent<NavMeshAgent>();        
