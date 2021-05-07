@@ -53,7 +53,7 @@ public class StatController : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
-            LoseLife(8);
+            LoseLife(20);
             healthBar.SetHealth(life);
             if(life > 0)
             {

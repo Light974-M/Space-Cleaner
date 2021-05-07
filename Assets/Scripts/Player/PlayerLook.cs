@@ -11,12 +11,16 @@ public class PlayerLook : MonoBehaviour
     public Camera cam;
     private float turnSpeed = 0.1f;
     private int timer = 0;
+
     private int wichSide = 0;
+
+    public Rigidbody rb;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        rb.constraints = RigidbodyConstraints.None;
     }
 
     void Update()
@@ -43,6 +47,21 @@ public class PlayerLook : MonoBehaviour
     private void Flip()
     {
         if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddRelativeTorque(0, 0, -50);
+            rb.constraints = RigidbodyConstraints.None;
+        }
+        else if (Input.GetKey(KeyCode.Q))
+        {
+            rb.AddRelativeTorque(0, 0, 50);
+            rb.constraints = RigidbodyConstraints.None;
+        }
+        else
+        {
+            rb.AddTorque(-rb.angularVelocity * 100);
+        }
+
+        /*if (Input.GetKey(KeyCode.D))
         {
             wichSide = 0;
 
@@ -95,6 +114,6 @@ public class PlayerLook : MonoBehaviour
                     turnSpeed = 0.1f;
                 }
             }
-        }
+        }*/
     }
 }

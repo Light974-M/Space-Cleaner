@@ -227,12 +227,12 @@ public class PlayerMove : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.UpArrow))
             {
-                StatController.LoseLife(-5);
+                StatController.LoseLife(-10);
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                StatController.LoseLife(5);
+                StatController.LoseLife(10);
             }
 
 

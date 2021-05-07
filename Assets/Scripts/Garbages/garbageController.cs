@@ -68,7 +68,7 @@ public class garbageController : MonoBehaviour
         {
             if(transform.parent == player)
             {
-                StatController.LoseLife(8);
+                StatController.LoseLife(20);
 
                 if (StatController.life > 0)
                 {
