@@ -6,13 +6,19 @@ using UnityEngine;
 public class StatController : MonoBehaviour
 {
     [Range(0, 100)]
-    public static int life = 100;
+    public static int life;
 
     public static bool lastChance = false;
     public static bool lastChanceInit = false;
     public static bool isGameOver = false;
     public static bool stabilization = false;
 
+    public HealthBar healthBar;
+
+    private void Start()
+    {
+        life = 100;   
+    }
 
     private void Update()
     {
@@ -33,6 +39,7 @@ public class StatController : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
             loseLife(8);
+            healthBar.SetHealth(life);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 10000);
             GetComponent<Rigidbody>().AddTorque(1000, 1000, 1000);

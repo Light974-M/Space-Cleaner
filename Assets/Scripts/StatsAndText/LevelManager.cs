@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -13,9 +14,14 @@ public class LevelManager : MonoBehaviour
     private int timer2 = 0;
     private float fixedDeltaTime;
 
+    public int trashRemaining;
+    public Text trashRemainingText;
+
     void Start()
     {
         this.fixedDeltaTime = Time.fixedDeltaTime;
+        trashRemaining = 5;
+        SetTrashReminding();
     }
 
     void Update()
@@ -52,6 +58,11 @@ public class LevelManager : MonoBehaviour
 
             timer2++;
         }
+    }
+
+    public void SetTrashReminding()
+    {
+        trashRemainingText.text = trashRemaining.ToString();
     }
 
     private void lastChanceMethod()

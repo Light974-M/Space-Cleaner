@@ -25,6 +25,10 @@ public class PlayerMove : MonoBehaviour
     //initialisation des objets(vecteurs).
     private Vector3 memoVelocity;
 
+    public DashBar dashBar;
+    [Range(0,1800)]
+    private float dashBarValue;
+
     //le start.
     private void Start()
     {
@@ -54,6 +58,7 @@ public class PlayerMove : MonoBehaviour
             else
             {
                 timer = 0;
+                dashBarValue = 300;
             }
 
             GodMod();
@@ -162,6 +167,21 @@ public class PlayerMove : MonoBehaviour
             camMain.GetComponent<Animator>().enabled = false;
         }
 
+        // Pour gérer l'affichage de la barre (attention tout recalculer si changement des durées de dash et de recharge)
+        if(timer < 300)
+        {
+            dashBarValue -= 1.4f;
+            dashBar.SetDash(dashBarValue);
+        }
+        else
+        {
+            if(dashBarValue < 0)
+            {
+                dashBarValue = 0;
+            }
+            dashBarValue += 0.2f;
+            dashBar.SetDash(dashBarValue);
+        }
         timer++;
     }
 
