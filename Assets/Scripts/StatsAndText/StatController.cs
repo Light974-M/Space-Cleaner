@@ -12,6 +12,11 @@ public class StatController : MonoBehaviour
     public static bool lastChanceInit = false;
     public static bool isGameOver = false;
     public static bool stabilization = false;
+    
+    public Transform target;
+    public Transform targetVelocity;
+
+    public int timer = 0;
 
     public HealthBar healthBar;
 
@@ -24,8 +29,18 @@ public class StatController : MonoBehaviour
     {
         if(stabilization)
         {
-            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 40);
-            GetComponent<Rigidbody>().AddTorque(-10, -10, -10);
+            if(timer > 150)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                stabilization = false;
+            }
+            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
+            GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
+            timer++;
+        }
+        else
+        {
+            timer = 0;
         }
     }
 
@@ -38,16 +53,19 @@ public class StatController : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
-            loseLife(8);
+            LoseLife(8);
             healthBar.SetHealth(life);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 10000);
-            GetComponent<Rigidbody>().AddTorque(1000, 1000, 1000);
-            stabilization = true;
+            if(life > 0)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
+                GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
+                stabilization = true;
+            }
         }
     }
 
-    public static void loseLife(int lose)
+    public static void LoseLife(int lose)
     {
         if(life > 20)
         {

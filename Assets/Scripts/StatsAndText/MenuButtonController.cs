@@ -15,27 +15,40 @@ public class MenuButtonController : MonoBehaviour
     public Button returnBack;
     public Button yes;
     public Button no;
-
+    private float fixedDeltaTime;
     public static int menuState = 0;
 
     void Start()
     {
+        Time.timeScale = 1;
+        this.fixedDeltaTime = 0.02f;
+        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+
+        menuState = 0;
         play.onClick.AddListener(PlayGame);
         settings.onClick.AddListener(SettingsGame);
         quit.onClick.AddListener(QuitGame);
         returnBack.onClick.AddListener(Return);
         yes.onClick.AddListener(Yes);
         no.onClick.AddListener(No);
+
+        PlayerPrefs.SetInt("load", 0);
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
     {
-        
+
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("max");
+        if(PlayerPrefs.HasKey("dieCounter"))
+        {
+            PlayerPrefs.SetInt("load", 1);
+            SceneManager.LoadScene(PlayerPrefs.GetString("save"));
+        }
+        SceneManager.LoadScene("Level1");
     }
 
     public void SettingsGame()
