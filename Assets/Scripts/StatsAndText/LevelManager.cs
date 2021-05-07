@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public GameObject flash;
-    public GameObject fondGameOver;
+    public GameObject messageGameOver;
     public GameObject wastedGameOver;
     public GameObject buttonGameOver;
     public GameObject fondPause;
@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        StatController.isGameOver = false;
+        StatController.life = 100;
         Time.timeScale = 1;
         this.fixedDeltaTime = 0.02f;
 
@@ -64,9 +66,9 @@ public class LevelManager : MonoBehaviour
 
             if (timer2 == 150)
             {
-                fondGameOver.SetActive(true);
+                messageGameOver.SetActive(true);
                 buttonGameOver.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
             }
 
@@ -128,14 +130,17 @@ public class LevelManager : MonoBehaviour
             }
             if (timer > 0 && timer < 50)
             {
+                Time.timeScale -= 0.015f;
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
                 flash.GetComponent<SpriteRenderer>().material.color += new Color(0, 0, 0, 0.03f);
             }
             if (timer >= 450 && timer <= 500)
             {
+                Time.timeScale += 0.015f;
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
                 flash.GetComponent<SpriteRenderer>().material.color -= new Color(0, 0, 0, 0.03f);
             }
-            Time.timeScale = 0.3f;
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+
             timer++;
 
             if (timer > 500)
@@ -181,7 +186,7 @@ public class LevelManager : MonoBehaviour
             isPause = true;
             Time.timeScale = 0f;
             Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             fondPause.SetActive(true);
             buttonQuitToMenu.SetActive(true);

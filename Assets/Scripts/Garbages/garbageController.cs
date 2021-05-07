@@ -61,4 +61,23 @@ public class garbageController : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
+        {
+            if(transform.parent == player)
+            {
+                StatController.LoseLife(8);
+
+                if (StatController.life > 0)
+                {
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
+                    GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
+                    StatController.stabilization = true;
+                }
+            }
+        }
+    }
 }

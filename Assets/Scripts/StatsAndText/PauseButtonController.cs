@@ -49,11 +49,15 @@ public class PauseButtonController : MonoBehaviour
     {
         if(sureToQuitState == 1)
         {
+            PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
             SceneManager.LoadScene("menu");
         }
 
         if (sureToQuitState == 2)
         {
+            PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
             Application.Quit();
         }
     }

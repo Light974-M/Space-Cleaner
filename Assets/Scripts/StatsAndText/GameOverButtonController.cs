@@ -22,6 +22,11 @@ public class GameOverButtonController : MonoBehaviour
 
     void Retry()
     {
+        DieCounterController.matriculationNumber++;
+
+        PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
+
         StatController.life = 100;
         StatController.isGameOver = false;
         StatController.lastChance = false;
@@ -31,6 +36,11 @@ public class GameOverButtonController : MonoBehaviour
 
     void Quit()
     {
+        DieCounterController.matriculationNumber++;
+
+        PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
+
         SceneManager.LoadScene("menu");
     }
 }

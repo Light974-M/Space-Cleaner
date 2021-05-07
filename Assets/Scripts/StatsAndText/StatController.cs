@@ -27,7 +27,6 @@ public class StatController : MonoBehaviour
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 stabilization = false;
-                Debug.Log("here");
             }
             GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
             GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
@@ -48,15 +47,18 @@ public class StatController : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
-            loseLife(8);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
-            GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
-            stabilization = true;
+            LoseLife(8);
+            if(life > 0)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
+                GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
+                stabilization = true;
+            }
         }
     }
 
-    public static void loseLife(int lose)
+    public static void LoseLife(int lose)
     {
         if(life > 20)
         {

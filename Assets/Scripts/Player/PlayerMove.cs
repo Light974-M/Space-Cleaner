@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour
 
             if (!isGodMod && !StatController.lastChance)
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     isDashing = true;
                 }
@@ -96,7 +96,7 @@ public class PlayerMove : MonoBehaviour
     //la fonction de déplacement et de stabilisation.
     private void MoveAndStabilize()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Z))
         {
             if (rb.velocity.magnitude < 20)
             {
@@ -109,7 +109,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.Mouse1))
+            if (Input.GetKey(KeyCode.LeftControl))
             {
                 rb.AddForce(-rb.velocity * 80);
             }
@@ -207,12 +207,12 @@ public class PlayerMove : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.UpArrow))
             {
-                StatController.loseLife(-5);
+                StatController.LoseLife(-5);
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                StatController.loseLife(5);
+                StatController.LoseLife(5);
             }
 
 
