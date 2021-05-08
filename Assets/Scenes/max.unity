@@ -162,6 +162,8 @@ MonoBehaviour:
   buttonNo: {fileID: 1918459582}
   textMenuQuit: {fileID: 1685242811}
   textWindowsQuit: {fileID: 725132053}
+  trashRemaining: 0
+  trashRemainingText: {fileID: 0}
 --- !u!4 &13560643
 Transform:
   m_ObjectHideFlags: 0
@@ -1574,6 +1576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042283200832441963, guid: 92925fe79d2bf5a4085d910a7b301845,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92925fe79d2bf5a4085d910a7b301845, type: 3}

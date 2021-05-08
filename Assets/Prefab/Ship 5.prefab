@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 2151701461927836850}
   - component: {fileID: 7890890008902438809}
   m_Layer: 9
-  m_Name: Ship 3
+  m_Name: Ship 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,7 +365,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.35
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
 --- !u!136 &7890890008902438809
