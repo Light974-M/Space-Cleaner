@@ -11,11 +11,14 @@ public class garbageController : MonoBehaviour
 
     private Vector3 memoVelocity;
 
+    public LevelManager levelManager;
+
     void Start()
     {
         player = GameObject.Find("PivotCam");
         targetGrab = GameObject.Find("targetGrab");
         targetVelocity = GameObject.Find("targetVelocity");
+        //levelManager.trashRemaining += 1;
     }
 
     void Update()
