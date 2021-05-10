@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 3920651061030261846}
   - component: {fileID: 3920651061030261849}
   - component: {fileID: 3920651061030261848}
+  - component: {fileID: 1257360202}
   m_Layer: 0
   m_Name: PivotCam
   m_TagString: Untagged
@@ -257,7 +258,7 @@ MonoBehaviour:
   horizontalSpeed: 1
   verticalSpeed: 1
   cam: {fileID: 3920651062576274163}
-  rb: {fileID: 0}
+  rb: {fileID: 3920651061030261849}
 --- !u!114 &3920651061030261847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,10 +317,22 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 3.2
+  m_Radius: 0.9316474
+  m_Height: 2.7478802
   m_Direction: 1
   m_Center: {x: 0, y: -0.39889756, z: -0.7970318}
+--- !u!114 &1257360202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3920651061030261851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7840819124d2424c9826b8b86914270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3920651061171281634
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +443,7 @@ Transform:
   - {fileID: 529338580}
   - {fileID: 95115780}
   - {fileID: 7045982063975053521}
+  - {fileID: 7919586356518141997}
   m_Father: {fileID: 3920651061030261845}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.58100003, y: 0, z: 0}
@@ -456,7 +470,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1e+9
   field of view: 60
   orthographic: 0
@@ -511,6 +525,36 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3920651062576274167}
   m_Enabled: 1
+--- !u!1 &5917586517225700775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7919586356518141997}
+  m_Layer: 0
+  m_Name: targetParticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7919586356518141997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917586517225700775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -2.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3920651062576274164}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8847748815261425884
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +626,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04ff094f0c61bed44962d729eed15533, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.36078432}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

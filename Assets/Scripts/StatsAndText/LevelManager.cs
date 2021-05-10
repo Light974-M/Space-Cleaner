@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
             timer2++;
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPause();
         }

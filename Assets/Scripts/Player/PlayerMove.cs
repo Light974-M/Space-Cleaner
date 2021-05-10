@@ -59,6 +59,7 @@ public class PlayerMove : MonoBehaviour
             {
                 timer = 0;
                 dashBarValue = 300;
+                camMain.GetComponent<Animator>().enabled = false;
             }
 
             GodMod();
@@ -287,7 +288,7 @@ public class PlayerMove : MonoBehaviour
     public static void GameOverMoves()
     {
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        player.GetComponent<Rigidbody>().AddForce(-player.GetComponent<Rigidbody>().velocity * 40000);
+        player.GetComponent<Rigidbody>().AddForce(-player.GetComponent<Rigidbody>().velocity * 8000);
         player.GetComponent<Rigidbody>().AddTorque(1000, 1000, 1000);
     }
 }
