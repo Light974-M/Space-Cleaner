@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class SpaceShipController : MonoBehaviour
 {
     // Trajectoire
-    public Transform[] waypoints;
+    public List<Transform> waypoints;
     // Point actuel visé
     public Transform target;
     // Index du point visé
@@ -42,7 +42,7 @@ public class SpaceShipController : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 2f)
         {
             // Si la target n'est pas la dernière de la liste
-            if (target != waypoints[waypoints.Length - 1])
+            if (target != waypoints[waypoints.Count - 1])
             {
                 StartCoroutine(CoroutineStopLook());
                 destPoint = destPoint + 1;
@@ -74,6 +74,11 @@ public class SpaceShipController : MonoBehaviour
                 //StartCoroutine(SlowdownSpeed(navMeshOtherShip.speed));
             }
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        
     }
 
     public void GoTo(Transform target)

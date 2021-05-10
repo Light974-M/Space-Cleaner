@@ -15,6 +15,30 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        slider.value = health;
+        StartCoroutine(CoroutineStopHealthBar(health));
+    }
+
+    IEnumerator CoroutineStopHealthBar(int health)
+    {
+        bool barIsOkay = false;
+        while (!barIsOkay)
+        {
+            if (slider.value < health)
+            {
+                slider.value += 0.5f;
+                Debug.Log("+1");
+            }
+            else if (slider.value > health)
+            {
+                slider.value -= 0.5f;
+                Debug.Log("-1");
+            }
+            else if (slider.value == health)
+            {
+                barIsOkay = true;
+                Debug.Log("ok");
+            }
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }

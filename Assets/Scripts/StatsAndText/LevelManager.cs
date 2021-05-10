@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class LevelManager : MonoBehaviour
     public static bool isPause = false;
 	public int trashRemaining;
     public Text trashRemainingText;
-    
+
     void Start()
     {
         StatController.isGameOver = false;
@@ -123,6 +124,13 @@ public class LevelManager : MonoBehaviour
                 textWindowsQuit.SetActive(true);
             }
         }
+
+#if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+
+        }
+#endif
     }
 
     public void SetTrashReminding()
@@ -205,4 +213,10 @@ public class LevelManager : MonoBehaviour
             buttonResume.SetActive(true);
         }
     }
+}
+
+[Serializable]
+public class Routes
+{
+    public List<Transform> waypoints;
 }

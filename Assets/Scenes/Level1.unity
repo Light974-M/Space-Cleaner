@@ -447,13 +447,19 @@ PrefabInstance:
     - target: {fileID: 660395510778564609, guid: 7e45b6e8cb08217429f8c1179d166527,
         type: 3}
       propertyPath: tempsMin
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 660395510778564609, guid: 7e45b6e8cb08217429f8c1179d166527,
         type: 3}
       propertyPath: tempsMax
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564609, guid: 7e45b6e8cb08217429f8c1179d166527,
+        type: 3}
+      propertyPath: spaceShips.Array.data[0]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad,
+        type: 3}
     - target: {fileID: 660395510778564610, guid: 7e45b6e8cb08217429f8c1179d166527,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -513,6 +519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnShip 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564611, guid: 7e45b6e8cb08217429f8c1179d166527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7971634168584501526, guid: 7e45b6e8cb08217429f8c1179d166527,
         type: 3}
@@ -832,13 +843,37 @@ PrefabInstance:
     - target: {fileID: 660395510778564609, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
         type: 3}
       propertyPath: tempsMin
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 660395510778564609, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
         type: 3}
       propertyPath: tempsMax
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564609, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
+        type: 3}
+      propertyPath: spaceShips.Array.data[1]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 263c8cd2839d7104ab937e4171043610,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
+        type: 3}
+      propertyPath: spaceShips.Array.data[0]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
+        type: 3}
+      propertyPath: spaceShips.Array.data[2]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
+        type: 3}
+      propertyPath: spaceShips.Array.data[3]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 8508be8621e75c64fa7bb981d59814dd,
+        type: 3}
     - target: {fileID: 660395510778564610, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -898,6 +933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnShip 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564611, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1877645227917584976, guid: 6ff68af6ffc4a9542b8d35ad95530bcf,
         type: 3}
@@ -5674,12 +5714,12 @@ PrefabInstance:
     - target: {fileID: 660395510778564609, guid: 57c65a9afcb5724459f40e799beec2e1,
         type: 3}
       propertyPath: tempsMin
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 660395510778564609, guid: 57c65a9afcb5724459f40e799beec2e1,
         type: 3}
       propertyPath: tempsMax
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 660395510778564610, guid: 57c65a9afcb5724459f40e799beec2e1,
         type: 3}
@@ -6002,13 +6042,19 @@ PrefabInstance:
     - target: {fileID: 660395510778564609, guid: 92925fe79d2bf5a4085d910a7b301845,
         type: 3}
       propertyPath: tempsMin
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 660395510778564609, guid: 92925fe79d2bf5a4085d910a7b301845,
         type: 3}
       propertyPath: tempsMax
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564609, guid: 92925fe79d2bf5a4085d910a7b301845,
+        type: 3}
+      propertyPath: spaceShips.Array.data[0]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad,
+        type: 3}
     - target: {fileID: 660395510778564610, guid: 92925fe79d2bf5a4085d910a7b301845,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6068,6 +6114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnShip 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564611, guid: 92925fe79d2bf5a4085d910a7b301845,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4042283200832441963, guid: 92925fe79d2bf5a4085d910a7b301845,
         type: 3}
@@ -6379,17 +6430,17 @@ PrefabInstance:
     - target: {fileID: 4508896719149706649, guid: d8a65e56a16549742af810bf2e900dfe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.11
+      value: 86.11
       objectReference: {fileID: 0}
     - target: {fileID: 4508896719149706649, guid: d8a65e56a16549742af810bf2e900dfe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 61
+      value: 24.51
       objectReference: {fileID: 0}
     - target: {fileID: 4508896719149706649, guid: d8a65e56a16549742af810bf2e900dfe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.14
+      value: 40.2
       objectReference: {fileID: 0}
     - target: {fileID: 4508896719149706649, guid: d8a65e56a16549742af810bf2e900dfe,
         type: 3}
@@ -7218,14 +7269,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
         type: 3}
+      propertyPath: spaceShips.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
+      propertyPath: spaceShips.Array.data[4]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 8508be8621e75c64fa7bb981d59814dd,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
+      propertyPath: spaceShips.Array.data[5]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 263c8cd2839d7104ab937e4171043610,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
+      propertyPath: spaceShips.Array.data[6]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
       propertyPath: tempsMin
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
         type: 3}
       propertyPath: tempsMax
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
+      propertyPath: spaceShips.Array.data[7]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 263c8cd2839d7104ab937e4171043610,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
+      propertyPath: spaceShips.Array.data[8]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 8508be8621e75c64fa7bb981d59814dd,
+        type: 3}
+    - target: {fileID: 660395510778564609, guid: 35b01d94742a32348bcf6396ed6d9dfa,
+        type: 3}
+      propertyPath: spaceShips.Array.data[9]
+      value: 
+      objectReference: {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad,
+        type: 3}
     - target: {fileID: 660395510778564610, guid: 35b01d94742a32348bcf6396ed6d9dfa,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -257,6 +257,7 @@ MonoBehaviour:
   horizontalSpeed: 1
   verticalSpeed: 1
   cam: {fileID: 3920651062576274163}
+  rb: {fileID: 0}
 --- !u!114 &3920651061030261847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +273,7 @@ MonoBehaviour:
   rb: {fileID: 3920651061030261849}
   garbage: {fileID: 0}
   camMain: {fileID: 3920651062576274163}
+  dashBar: {fileID: 0}
 --- !u!114 &3920651061030261846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +289,7 @@ MonoBehaviour:
   target: {fileID: 3920651061171281635}
   targetVelocity: {fileID: 3920651060718975011}
   timer: 0
+  healthBar: {fileID: 0}
 --- !u!54 &3920651061030261849
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -313,8 +316,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.9316474
-  m_Height: 2.7478802
+  m_Radius: 1
+  m_Height: 3.2
   m_Direction: 1
   m_Center: {x: 0, y: -0.39889756, z: -0.7970318}
 --- !u!1 &3920651061171281634

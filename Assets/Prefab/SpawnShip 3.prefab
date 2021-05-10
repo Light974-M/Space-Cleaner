@@ -52,16 +52,13 @@ MonoBehaviour:
   - {fileID: 3516833750339308549, guid: 263c8cd2839d7104ab937e4171043610, type: 3}
   - {fileID: 3516833750339308549, guid: 1312ccf92b8edfb419a899609021f6ad, type: 3}
   - {fileID: 3516833750339308549, guid: 8508be8621e75c64fa7bb981d59814dd, type: 3}
-  waypoints1:
-  - {fileID: 4791234693773035485}
-  - {fileID: 9110204146936039846}
-  - {fileID: 8177414674792213311}
-  waypoints2:
-  - {fileID: 4791234693773035485}
-  - {fileID: 9110204146936039846}
-  - {fileID: 8177414674792213311}
   tempsMin: 3
   tempsMax: 5
+  routes:
+  - waypoints:
+    - {fileID: 4791234693773035485}
+    - {fileID: 9110204146936039846}
+    - {fileID: 8177414674792213311}
 --- !u!1 &1426703609115629752
 GameObject:
   m_ObjectHideFlags: 0
