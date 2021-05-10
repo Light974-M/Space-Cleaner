@@ -20,6 +20,8 @@ public class StatController : MonoBehaviour
 
     public HealthBar healthBar;
 
+    private float velocity;
+
     private void Start()
     {
         life = 100;   
@@ -27,6 +29,8 @@ public class StatController : MonoBehaviour
 
     private void Update()
     {
+        velocity = Mathf.Sqrt((GetComponent<Rigidbody>().velocity.x* GetComponent<Rigidbody>().velocity.x) + (GetComponent<Rigidbody>().velocity.y * GetComponent<Rigidbody>().velocity.y) + (GetComponent<Rigidbody>().velocity.z * GetComponent<Rigidbody>().velocity.z));
+
         if(stabilization)
         {
             if(timer > 150)
@@ -58,8 +62,8 @@ public class StatController : MonoBehaviour
             if(life > 0)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
-                GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
+                GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * (200000 / velocity));
+                GetComponent<Rigidbody>().AddTorque(12000, 12000, 12000);
                 stabilization = true;
             }
         }
