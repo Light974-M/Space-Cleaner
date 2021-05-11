@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     private float dashCoolDown = 1;
     public static bool isGodMod = false;
     private bool isDashing = false;
+    private bool isDashingWithoutRecharging = false;
     private bool isLastChanceDashing = false;
     private bool lastChanceDashFirst = true;
     private int valueOfLastChanceDash = 0;
@@ -28,6 +29,8 @@ public class PlayerMove : MonoBehaviour
     public DashBar dashBar;
     [Range(0,1800)]
     private float dashBarValue;
+
+    private float velocity;
 
     //le start.
     private void Start()
@@ -48,6 +51,7 @@ public class PlayerMove : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     isDashing = true;
+                    isDashingWithoutRecharging = true;
                 }
             }
 
@@ -96,6 +100,20 @@ public class PlayerMove : MonoBehaviour
             isDashing = false;
             camMain.fieldOfView = 60;
             camMain.GetComponent<Animator>().enabled = false;
+        }
+
+        velocity = Mathf.Sqrt((rb.velocity.x * rb.velocity.x) + (rb.velocity.y * rb.velocity.y) + (rb.velocity.z * rb.velocity.z));
+
+        if(!isDashingWithoutRecharging && !isLastChanceDashing)
+        {
+            if(camMain.fieldOfView < 100)
+            {
+                camMain.fieldOfView = 60 + velocity;
+            }
+            else
+            {
+                camMain.fieldOfView = 99;
+            }
         }
     }
 
@@ -162,6 +180,7 @@ public class PlayerMove : MonoBehaviour
         {
             camMain.fieldOfView = 60;
             dashCoolDown = 1;
+            isDashingWithoutRecharging = false;
         }
         if(timer == 200)
         {

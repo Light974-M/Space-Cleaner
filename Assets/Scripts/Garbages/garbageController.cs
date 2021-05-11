@@ -8,7 +8,7 @@ public class garbageController : MonoBehaviour
     private bool isGrab = false;
     private GameObject targetGrab;
     private GameObject targetVelocity;
-    private GameObject pressToGrabText;
+    public static GameObject pressToGrabText;
     private GameObject pivotPressToGrab;
 
     private Vector3 memoVelocity;

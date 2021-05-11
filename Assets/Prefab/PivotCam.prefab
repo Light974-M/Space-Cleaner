@@ -287,6 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b835ed0f98cca90468141ec29a593953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alveolChanging: {fileID: 0}
+  alveolChanging2: {fileID: 0}
   target: {fileID: 3920651061171281635}
   targetVelocity: {fileID: 3920651060718975011}
   timer: 0
@@ -333,6 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7840819124d2424c9826b8b86914270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 5461439574151972968, guid: edf2aa9f128eae64ab58d6cf0ceae19b,
+    type: 3}
 --- !u!1 &3920651061171281634
 GameObject:
   m_ObjectHideFlags: 0

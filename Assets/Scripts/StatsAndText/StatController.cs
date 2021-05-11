@@ -12,7 +12,7 @@ public class StatController : MonoBehaviour
     public static bool lastChanceInit = false;
     public static bool isGameOver = false;
     public static bool stabilization = false;
-    
+
     public Transform target;
     public Transform targetVelocity;
 
@@ -33,13 +33,15 @@ public class StatController : MonoBehaviour
 
         if(stabilization)
         {
-            if(timer > 150)
+
+            if (timer > 150)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 stabilization = false;
             }
             GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
             GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
+
             timer++;
         }
         else
