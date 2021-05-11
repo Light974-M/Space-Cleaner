@@ -8,6 +8,8 @@ public class garbageController : MonoBehaviour
     private bool isGrab = false;
     private GameObject targetGrab;
     private GameObject targetVelocity;
+    public static GameObject pressToGrabText;
+    private GameObject pivotPressToGrab;
 
     private Vector3 memoVelocity;
 
@@ -15,6 +17,8 @@ public class garbageController : MonoBehaviour
 
     void Start()
     {
+        pivotPressToGrab = GameObject.Find("pivot2pressToGrab");
+        pressToGrabText = GameObject.Find("PressToGrab");
         player = GameObject.Find("PivotCam");
         targetGrab = GameObject.Find("targetGrab");
         targetVelocity = GameObject.Find("targetVelocity");
@@ -36,13 +40,33 @@ public class garbageController : MonoBehaviour
             emission.enabled = false;
         }
     }
-
+ 
     void OnMouseDown()
     {
         if (Vector3.Distance(player.transform.position, transform.position) < 10)
         {
             isGrab = true;
         }
+    }
+
+    private void OnMouseOver()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) < 10)
+        {
+            pressToGrabText.SetActive(true);
+            pressToGrabText.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            pivotPressToGrab.transform.eulerAngles = new Vector3(pivotPressToGrab.transform.eulerAngles.x, pivotPressToGrab.transform.eulerAngles.y, - player.transform.eulerAngles.z);
+            pressToGrabText.transform.LookAt(player.transform);
+        }
+        else
+        {
+            pressToGrabText.SetActive(false);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        pressToGrabText.SetActive(false);
     }
 
     private void Grab()

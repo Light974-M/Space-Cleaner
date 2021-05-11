@@ -12,13 +12,15 @@ public class StatController : MonoBehaviour
     public static bool lastChanceInit = false;
     public static bool isGameOver = false;
     public static bool stabilization = false;
-    
+
     public Transform target;
     public Transform targetVelocity;
 
     public int timer = 0;
 
     public HealthBar healthBar;
+
+    private float velocity;
 
     private void Start()
     {
@@ -27,15 +29,19 @@ public class StatController : MonoBehaviour
 
     private void Update()
     {
+        velocity = Mathf.Sqrt((GetComponent<Rigidbody>().velocity.x* GetComponent<Rigidbody>().velocity.x) + (GetComponent<Rigidbody>().velocity.y * GetComponent<Rigidbody>().velocity.y) + (GetComponent<Rigidbody>().velocity.z * GetComponent<Rigidbody>().velocity.z));
+
         if(stabilization)
         {
-            if(timer > 150)
+
+            if (timer > 150)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 stabilization = false;
             }
             GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
             GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
+
             timer++;
         }
         else
@@ -58,8 +64,8 @@ public class StatController : MonoBehaviour
             if(life > 0)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                GetComponent<Rigidbody>().AddForce(new Vector3(GetComponent<Rigidbody>().velocity.x * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.y * (1 / GetComponent<Rigidbody>().velocity.x), GetComponent<Rigidbody>().velocity.z * (1 / GetComponent<Rigidbody>().velocity.x)) * 50000);
-                GetComponent<Rigidbody>().AddTorque(3000, 3000, 3000);
+                GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * (200000 / velocity));
+                GetComponent<Rigidbody>().AddTorque(12000, 12000, 12000);
                 stabilization = true;
             }
         }

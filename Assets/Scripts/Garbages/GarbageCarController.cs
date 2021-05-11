@@ -20,6 +20,7 @@ public class GarbageCarController : MonoBehaviour
             //{
                 Debug.Log("Garbage destroyed");
                 Destroy(collision.gameObject);
+                garbageController.pressToGrabText.SetActive(false);
                 levelManager.trashRemaining -= 1;
                 levelManager.SetTrashReminding();
             //}
