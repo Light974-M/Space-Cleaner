@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
+        wastedGameOver.transform.localScale = new Vector3(0.1646725f + (StatController.velocity / 300), 0.1086123f + (StatController.velocity / 300), 0.1086123f + (StatController.velocity / 300));
 
         if(!isPause)
         {
@@ -60,6 +61,10 @@ public class LevelManager : MonoBehaviour
             {
                 PlayerMove.GameOverMoves();
                 wastedGameOver.GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
+
+                StatController.alveol1.SetActive(true);
+                StatController.alveol2.SetActive(true);
+                StatController.alveol3.SetActive(true);
             }
 
             if (timer2 <= 10)
@@ -79,12 +84,28 @@ public class LevelManager : MonoBehaviour
                 Cursor.visible = true;
             }
 
+            if (timer2 == 20)
+            {
+                StatController.alveol3.SetActive(false);
+            }
+            if (timer2 == 23)
+            {
+                StatController.alveol2.SetActive(false);
+            }
+            if (timer2 == 26)
+            {
+                StatController.alveol1.SetActive(false);
+            }
+
             timer2++;
         }
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            SwitchPause();
+            if(!StatController.isGameOver)
+            {
+                SwitchPause();
+            }
         }
 
         if(PauseButtonController.isResuming)

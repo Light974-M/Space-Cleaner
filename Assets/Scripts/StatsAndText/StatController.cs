@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class StatController : MonoBehaviour
 {
@@ -13,6 +14,16 @@ public class StatController : MonoBehaviour
     public static bool isGameOver = false;
     public static bool stabilization = false;
 
+    public static GameObject alveol1;
+    public static GameObject alveol2;
+    public static GameObject alveol3;
+
+    private float x = 0;
+    private float y = 0;
+
+    public GameObject indicator;
+    public GameObject car;
+
     public Transform target;
     public Transform targetVelocity;
 
@@ -20,10 +31,14 @@ public class StatController : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private float velocity;
+    public static float velocity;
 
     private void Start()
     {
+        alveol1 = GameObject.Find("AlveolModifier");
+        alveol2 = GameObject.Find("AlveolModifier2");
+        alveol3 = GameObject.Find("AlveolModifier3");
+
         life = 100;   
     }
 
@@ -31,7 +46,50 @@ public class StatController : MonoBehaviour
     {
         velocity = Mathf.Sqrt((GetComponent<Rigidbody>().velocity.x* GetComponent<Rigidbody>().velocity.x) + (GetComponent<Rigidbody>().velocity.y * GetComponent<Rigidbody>().velocity.y) + (GetComponent<Rigidbody>().velocity.z * GetComponent<Rigidbody>().velocity.z));
 
-        if(stabilization)
+        indicator.transform.LookAt(car.transform);
+        if(indicator.transform.localEulerAngles.y > 45 && indicator.transform.localEulerAngles.y <= 170)
+        {
+            y = 45;
+            indicator.transform.localEulerAngles = new Vector3(indicator.transform.localEulerAngles.x, y, indicator.transform.localEulerAngles.z);
+        }
+        if(indicator.transform.localEulerAngles.y < 315 && indicator.transform.localEulerAngles.y > 170)
+        {
+            y = 315;
+            indicator.transform.localEulerAngles = new Vector3(indicator.transform.localEulerAngles.x, y, indicator.transform.localEulerAngles.z);
+        }
+
+        if(indicator.transform.localEulerAngles.x > 20 && indicator.transform.localEulerAngles.x <= 180)
+        {
+            x = 20;
+
+            if (indicator.transform.localEulerAngles.y <= 45 && indicator.transform.localEulerAngles.y >= 0)
+            {
+                x -= (indicator.transform.localEulerAngles.y / 5) - 9;
+            }
+            if (indicator.transform.localEulerAngles.y >= 315 && indicator.transform.localEulerAngles.y <= 360)
+            {
+                x += ((indicator.transform.localEulerAngles.y - 315) / 5);
+            }
+
+            indicator.transform.localEulerAngles = new Vector3(x, indicator.transform.localEulerAngles.y, indicator.transform.localEulerAngles.z);
+        }
+        if (indicator.transform.localEulerAngles.x < 340 && indicator.transform.localEulerAngles.x > 180)
+        {
+            x = 340;
+
+            if (indicator.transform.localEulerAngles.y <= 45 && indicator.transform.localEulerAngles.y >= 0)
+            {
+                x += (indicator.transform.localEulerAngles.y / 5) - 9;
+            }
+            if (indicator.transform.localEulerAngles.y >= 315 && indicator.transform.localEulerAngles.y <= 360)
+            {
+                x -= ((indicator.transform.localEulerAngles.y - 315) / 5);
+            }
+
+            indicator.transform.localEulerAngles = new Vector3(x, indicator.transform.localEulerAngles.y, indicator.transform.localEulerAngles.z);
+        }
+
+        if (stabilization)
         {
 
             if (timer > 150)
@@ -42,11 +100,34 @@ public class StatController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
             GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
 
+            if(timer == 0)
+            {
+                alveol1.SetActive(true);
+                alveol2.SetActive(true);
+                alveol3.SetActive(true);
+            }
+            if(timer == 20)
+            {
+                alveol3.SetActive(false);
+            }
+            if (timer == 23)
+            {
+                alveol2.SetActive(false);
+            }
+            if (timer == 26)
+            {
+                alveol1.SetActive(false);
+            }
+
             timer++;
         }
         else
         {
             timer = 0;
+
+            alveol1.SetActive(false);
+            alveol2.SetActive(false);
+            alveol3.SetActive(false);
         }
     }
 
@@ -65,7 +146,7 @@ public class StatController : MonoBehaviour
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * (200000 / velocity));
-                GetComponent<Rigidbody>().AddTorque(12000, 12000, 12000);
+                GetComponent<Rigidbody>().AddTorque(Random.Range(-80000,80000), Random.Range(-80000, 80000), Random.Range(-80000, 80000));
                 stabilization = true;
             }
         }

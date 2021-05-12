@@ -27,7 +27,10 @@ public class garbageController : MonoBehaviour
 
     void Update()
     {
-        Grab();
+        if(!LevelManager.isPause)
+        {
+            Grab();
+        }
 
         if(PlayerMove.isGodMod)
         {
@@ -43,30 +46,39 @@ public class garbageController : MonoBehaviour
  
     void OnMouseDown()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 10)
+        if (!LevelManager.isPause)
         {
-            isGrab = true;
+            if (Vector3.Distance(player.transform.position, transform.position) < 10)
+            {
+                isGrab = true;
+            }
         }
     }
 
     private void OnMouseOver()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 10)
+        if(!LevelManager.isPause)
         {
-            pressToGrabText.SetActive(true);
-            pressToGrabText.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            pivotPressToGrab.transform.eulerAngles = new Vector3(pivotPressToGrab.transform.eulerAngles.x, pivotPressToGrab.transform.eulerAngles.y, - player.transform.eulerAngles.z);
-            pressToGrabText.transform.LookAt(player.transform);
-        }
-        else
-        {
-            pressToGrabText.SetActive(false);
+            if (Vector3.Distance(player.transform.position, transform.position) < 10)
+            {
+                pressToGrabText.SetActive(true);
+                pressToGrabText.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                pivotPressToGrab.transform.eulerAngles = new Vector3(pivotPressToGrab.transform.eulerAngles.x, pivotPressToGrab.transform.eulerAngles.y, -player.transform.eulerAngles.z);
+                pressToGrabText.transform.LookAt(player.transform);
+            }
+            else
+            {
+                pressToGrabText.SetActive(false);
+            }
         }
     }
 
     private void OnMouseExit()
     {
-        pressToGrabText.SetActive(false);
+        if (!LevelManager.isPause)
+        {
+            pressToGrabText.SetActive(false);
+        }
     }
 
     private void Grab()
