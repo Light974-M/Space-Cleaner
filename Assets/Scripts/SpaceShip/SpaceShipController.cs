@@ -17,6 +17,8 @@ public class SpaceShipController : MonoBehaviour
     private NavMeshAgent navMesh;
     bool lookIsActive;
 
+    public float lerp;
+
     void Start()
     {
         lookIsActive = true;
@@ -34,9 +36,6 @@ public class SpaceShipController : MonoBehaviour
         {
             transform.LookAt(target);
         }
-        // Version avec Translate
-        //Vector3 dir = target.position - transform.position;
-        //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
         //Si le vaisseau est presque arrivé à sa target
         if (Vector3.Distance(transform.position, target.position) < 2f)
@@ -44,15 +43,12 @@ public class SpaceShipController : MonoBehaviour
             // Si la target n'est pas la dernière de la liste
             if (target != waypoints[waypoints.Count - 1])
             {
+                // Tentative de look avec un Lerp (ça marche pas)
+                //rotateView();
                 StartCoroutine(CoroutineStopLook());
                 destPoint = destPoint + 1;
                 target = waypoints[destPoint];
                 GoTo(target);
-                
-                if (navMesh.speed != defaultSpeed)
-                {
-                    navMesh.speed = defaultSpeed;
-                }
             }
             else
             {
@@ -62,23 +58,41 @@ public class SpaceShipController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Hit");
         if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
             NavMeshAgent navMeshOtherShip = collision.collider.gameObject.GetComponent<NavMeshAgent>();        
             if (navMeshOtherShip.speed < navMesh.speed)
             {
                 navMesh.speed = navMeshOtherShip.speed;
-                //StartCoroutine(SlowdownSpeed(navMeshOtherShip.speed));
+                Debug.Log("Hit");
+                bouchon = true;
+            }
+        }
+    }*/
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
+        {
+            if(navMesh.speed != defaultSpeed)
+            {
+                StartCoroutine(CoroutineResetSpeed());
             }
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
+        {
+            NavMeshAgent navMeshOtherShip = collision.collider.gameObject.GetComponent<NavMeshAgent>();
+            if (navMeshOtherShip.speed < navMesh.speed)
+            {
+                navMesh.speed = navMeshOtherShip.speed;
+            }
+        }
     }
 
     public void GoTo(Transform target)
@@ -92,4 +106,28 @@ public class SpaceShipController : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
         lookIsActive = true;
     }
+
+    IEnumerator CoroutineResetSpeed()
+    {
+        yield return new WaitForSeconds(1f);
+        navMesh.speed = defaultSpeed;
+    }
+
+    /*private void rotateView()
+    {
+        bool tant = true;
+        while(tant)
+        {
+            if (lerp <= 1)
+            {
+                lerp += Time.deltaTime;
+                transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, lerp);
+            }
+            else
+            {
+                lerp = 0;
+                tant = false;
+            }
+        }
+    }*/
 }

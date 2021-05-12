@@ -25,6 +25,7 @@ public class LerpPosition : MonoBehaviour
         {
             lerp += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(origin.position, target.position, lerp);
+            transform.rotation = Quaternion.Lerp(origin.rotation,target.rotation,lerp);
         }
         else
         {
