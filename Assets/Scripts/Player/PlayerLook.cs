@@ -7,6 +7,7 @@ public class PlayerLook : MonoBehaviour
     public float horizontalSpeed = 1f;
     public float verticalSpeed = 1f;
     public Camera cam;
+    private int timer = 0;
 
     public Rigidbody rb;
 
@@ -28,13 +29,21 @@ public class PlayerLook : MonoBehaviour
                 rb.AddTorque(-rb.angularVelocity * 100);
             }
 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKey(KeyCode.Space))
             {
-                cam.transform.Rotate(0, 180, 0);
+                if(timer<9)
+                {
+                    cam.transform.Rotate(0, 20, 0);
+                    timer++;
+                }
             }
-            if(Input.GetKeyUp(KeyCode.Space))
+            else
             {
-                cam.transform.Rotate(0, -180, 0);
+                if (timer > 0)
+                {
+                    cam.transform.Rotate(0, -20, 0);
+                    timer--;
+                }
             }
 
             /*if (!StatController.lastChance)

@@ -101,7 +101,7 @@ public class PlayerMove : MonoBehaviour
 
         velocity = Mathf.Sqrt((rb.velocity.x * rb.velocity.x) + (rb.velocity.y * rb.velocity.y) + (rb.velocity.z * rb.velocity.z));
 
-        if(!isDashingWithoutRecharging && !isLastChanceDashing)
+        if(!isDashingWithoutRecharging && !isLastChanceDashing && !isGodMod)
         {
             if(camMain.fieldOfView < 100)
             {
@@ -169,7 +169,6 @@ public class PlayerMove : MonoBehaviour
         if (StatController.lastChance)
         {
             isDashing = false;
-            camMain.fieldOfView = 60;
             camMain.GetComponent<Animator>().enabled = false;
             rb.AddForce(-rb.velocity * 8000);
         }

@@ -18,6 +18,12 @@ public class StatController : MonoBehaviour
     public static GameObject alveol2;
     public static GameObject alveol3;
 
+    private float x = 0;
+    private float y = 0;
+
+    public GameObject indicator;
+    public GameObject car;
+
     public Transform target;
     public Transform targetVelocity;
 
@@ -40,7 +46,50 @@ public class StatController : MonoBehaviour
     {
         velocity = Mathf.Sqrt((GetComponent<Rigidbody>().velocity.x* GetComponent<Rigidbody>().velocity.x) + (GetComponent<Rigidbody>().velocity.y * GetComponent<Rigidbody>().velocity.y) + (GetComponent<Rigidbody>().velocity.z * GetComponent<Rigidbody>().velocity.z));
 
-        if(stabilization)
+        indicator.transform.LookAt(car.transform);
+        if(indicator.transform.localEulerAngles.y > 45 && indicator.transform.localEulerAngles.y <= 170)
+        {
+            y = 45;
+            indicator.transform.localEulerAngles = new Vector3(indicator.transform.localEulerAngles.x, y, indicator.transform.localEulerAngles.z);
+        }
+        if(indicator.transform.localEulerAngles.y < 315 && indicator.transform.localEulerAngles.y > 170)
+        {
+            y = 315;
+            indicator.transform.localEulerAngles = new Vector3(indicator.transform.localEulerAngles.x, y, indicator.transform.localEulerAngles.z);
+        }
+
+        if(indicator.transform.localEulerAngles.x > 20 && indicator.transform.localEulerAngles.x <= 180)
+        {
+            x = 20;
+
+            if (indicator.transform.localEulerAngles.y <= 45 && indicator.transform.localEulerAngles.y >= 0)
+            {
+                x -= (indicator.transform.localEulerAngles.y / 5) - 9;
+            }
+            if (indicator.transform.localEulerAngles.y >= 315 && indicator.transform.localEulerAngles.y <= 360)
+            {
+                x += ((indicator.transform.localEulerAngles.y - 315) / 5);
+            }
+
+            indicator.transform.localEulerAngles = new Vector3(x, indicator.transform.localEulerAngles.y, indicator.transform.localEulerAngles.z);
+        }
+        if (indicator.transform.localEulerAngles.x < 340 && indicator.transform.localEulerAngles.x > 180)
+        {
+            x = 340;
+
+            if (indicator.transform.localEulerAngles.y <= 45 && indicator.transform.localEulerAngles.y >= 0)
+            {
+                x += (indicator.transform.localEulerAngles.y / 5) - 9;
+            }
+            if (indicator.transform.localEulerAngles.y >= 315 && indicator.transform.localEulerAngles.y <= 360)
+            {
+                x -= ((indicator.transform.localEulerAngles.y - 315) / 5);
+            }
+
+            indicator.transform.localEulerAngles = new Vector3(x, indicator.transform.localEulerAngles.y, indicator.transform.localEulerAngles.z);
+        }
+
+        if (stabilization)
         {
 
             if (timer > 150)

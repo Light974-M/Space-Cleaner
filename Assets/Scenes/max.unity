@@ -773,6 +773,16 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1536830112}
+    - target: {fileID: 3920651061030261846, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
+        type: 3}
+      propertyPath: indicator
+      value: 
+      objectReference: {fileID: 95352086}
+    - target: {fileID: 3920651061030261846, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 688757836}
     - target: {fileID: 3920651061030261847, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
         type: 3}
       propertyPath: dashBar
@@ -800,6 +810,12 @@ GameObject:
 --- !u!1 &89535110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 529338579, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 89535107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &95352086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3670924220708675746, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
     type: 3}
   m_PrefabInstance: {fileID: 89535107}
   m_PrefabAsset: {fileID: 0}
@@ -2969,6 +2985,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669501731}
   m_Mesh: {fileID: 6461297695846733525, guid: f4b84a806137a604a9e692d1b7ae8066, type: 3}
+--- !u!1 &688757836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4753515073350594225, guid: 946978ad5622b49499064adce4f61807,
+    type: 3}
+  m_PrefabInstance: {fileID: 1076977864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &702221800
 GameObject:
   m_ObjectHideFlags: 0
