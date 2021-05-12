@@ -12,10 +12,8 @@ public class PlayerMove : MonoBehaviour
 
     //initialisation des variables numériques.
     private int timer = 0;
-    private int timer2 = 0;
     private int timer3 = 0;
-    private float rotateDown = 1;
-    private float dashCoolDown = 1;
+    private float dashCoolDown = 1.2f;
     public static bool isGodMod = false;
     private bool isDashing = false;
     private bool isDashingWithoutRecharging = false;
@@ -98,7 +96,6 @@ public class PlayerMove : MonoBehaviour
         else
         {
             isDashing = false;
-            camMain.fieldOfView = 60;
             camMain.GetComponent<Animator>().enabled = false;
         }
 
@@ -130,13 +127,39 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(-rb.velocity * 40);
             }
+
+
+            //rb.AddForce(0, 0, 0);
+        }
+        else if (Input.GetKey(KeyCode.Q))
+        {
+            if (rb.velocity.magnitude < 20)
+            {
+                rb.AddForce(transform.right * -400);
+            }
+            else
+            {
+                rb.AddForce(-rb.velocity * 40);
+            }
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            if (rb.velocity.magnitude < 20)
+            {
+                rb.AddForce(transform.right * 400);
+            }
+            else
+            {
+                rb.AddForce(-rb.velocity * 40);
+            }
         }
         else
         {
             if (Input.GetKey(KeyCode.LeftControl))
             {
-                rb.AddForce(-rb.velocity * 80);
+                rb.AddForce(-rb.velocity * 130);
             }
+            rb.AddForce(-rb.velocity * 25);
         }
     }
 
@@ -178,7 +201,6 @@ public class PlayerMove : MonoBehaviour
         }
         if (timer == 300)
         {
-            camMain.fieldOfView = 60;
             dashCoolDown = 1;
             isDashingWithoutRecharging = false;
         }
@@ -263,17 +285,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (timer3 == 0)
         {
-            camMain.GetComponent<Animator>().enabled = true;
             memoVelocity = rb.velocity;
             rb.AddForce(transform.right * valueOfLastChanceDash);
         }
-        if (timer3 >= 200 && timer < 300)
+        if (timer3 >= 100 && timer < 110)
         {
-            rb.AddForce(-rb.velocity * 80);
-        }
-        if (timer3 > 1800)
-        {
-            isLastChanceDashing = false;
+            rb.AddForce(-rb.velocity * 800);
         }
 
         if (timer3 > 0 && timer3 < 50)
@@ -281,19 +298,15 @@ public class PlayerMove : MonoBehaviour
             camMain.fieldOfView += 1f;
         }
 
-        if (timer3 > 150 && timer3 < 300)
+        if (timer3 > 60 && timer3 < 110)
         {
             camMain.fieldOfView -= dashCoolDown;
-            dashCoolDown = dashCoolDown / 1.02f;
+            dashCoolDown = dashCoolDown / 1.027f;
         }
-        if (timer3 == 300)
+        if (timer3 == 110)
         {
-            camMain.fieldOfView = 60;
-            dashCoolDown = 1;
-        }
-        if (timer3 == 200)
-        {
-            camMain.GetComponent<Animator>().enabled = false;
+            isLastChanceDashing = false;
+            dashCoolDown = 1.2f;
         }
         
         timer3++;

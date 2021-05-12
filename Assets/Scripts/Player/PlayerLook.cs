@@ -6,13 +6,7 @@ public class PlayerLook : MonoBehaviour
 {
     public float horizontalSpeed = 1f;
     public float verticalSpeed = 1f;
-    private float xRotation = 0.0f;
-    private float yRotation = 0.0f;
     public Camera cam;
-    private float turnSpeed = 0.1f;
-    private int timer = 0;
-
-    private int wichSide = 0;
 
     public Rigidbody rb;
 
@@ -29,10 +23,24 @@ public class PlayerLook : MonoBehaviour
         {
             Look();
 
-            if (!StatController.lastChance)
+            if (!StatController.stabilization)
+            {
+                rb.AddTorque(-rb.angularVelocity * 100);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                cam.transform.Rotate(0, 180, 0);
+            }
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                cam.transform.Rotate(0, -180, 0);
+            }
+
+            /*if (!StatController.lastChance)
             {
                 Flip();
-            }
+            }*/
         }
     }
 
@@ -44,76 +52,22 @@ public class PlayerLook : MonoBehaviour
         transform.Rotate(new Vector3(-mouseY, mouseX, 0));
     }
 
-    private void Flip()
+    /*private void Flip()
     {
         if (Input.GetKey(KeyCode.D))
         {
             rb.AddRelativeTorque(0, 0, -50);
-            rb.constraints = RigidbodyConstraints.None;
         }
         else if (Input.GetKey(KeyCode.Q))
         {
             rb.AddRelativeTorque(0, 0, 50);
-            rb.constraints = RigidbodyConstraints.None;
         }
         else
         {
-            rb.AddTorque(-rb.angularVelocity * 100);
+            if(!StatController.stabilization)
+            {
+                rb.AddTorque(-rb.angularVelocity * 100);
+            }
         }
-
-        /*if (Input.GetKey(KeyCode.D))
-        {
-            wichSide = 0;
-
-            if (timer < 100)
-            {
-                turnSpeed = turnSpeed * 1.04f;
-                timer++;
-            }
-            transform.Rotate(0, 0, -turnSpeed);
-        }
-        else if (Input.GetKey(KeyCode.Q))
-        {
-            wichSide = 1;
-
-            if (timer < 100)
-            {
-                turnSpeed = turnSpeed * 1.04f;
-                timer++;
-            }
-            transform.Rotate(0, 0, turnSpeed);
-        }
-        else
-        {
-            if (wichSide == 0)
-            {
-                if (timer > 1)
-                {
-                    turnSpeed = turnSpeed * 0.96f;
-                    transform.Rotate(0, 0, -turnSpeed);
-                    timer--;
-                }
-                else
-                {
-                    timer = 0;
-                    turnSpeed = 0.1f;
-                }
-            }
-
-            if (wichSide == 1)
-            {
-                if (timer > 1)
-                {
-                    turnSpeed = turnSpeed * 0.96f;
-                    transform.Rotate(0, 0, turnSpeed);
-                    timer--;
-                }
-                else
-                {
-                    timer = 0;
-                    turnSpeed = 0.1f;
-                }
-            }
-        }*/
-    }
+    }*/
 }

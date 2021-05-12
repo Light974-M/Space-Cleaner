@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class StatController : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class StatController : MonoBehaviour
     public static bool isGameOver = false;
     public static bool stabilization = false;
 
+    public static GameObject alveol1;
+    public static GameObject alveol2;
+    public static GameObject alveol3;
+
     public Transform target;
     public Transform targetVelocity;
 
@@ -20,10 +25,14 @@ public class StatController : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private float velocity;
+    public static float velocity;
 
     private void Start()
     {
+        alveol1 = GameObject.Find("AlveolModifier");
+        alveol2 = GameObject.Find("AlveolModifier2");
+        alveol3 = GameObject.Find("AlveolModifier3");
+
         life = 100;   
     }
 
@@ -42,11 +51,34 @@ public class StatController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * 50);
             GetComponent<Rigidbody>().AddTorque(-GetComponent<Rigidbody>().angularVelocity * 50);
 
+            if(timer == 0)
+            {
+                alveol1.SetActive(true);
+                alveol2.SetActive(true);
+                alveol3.SetActive(true);
+            }
+            if(timer == 20)
+            {
+                alveol3.SetActive(false);
+            }
+            if (timer == 23)
+            {
+                alveol2.SetActive(false);
+            }
+            if (timer == 26)
+            {
+                alveol1.SetActive(false);
+            }
+
             timer++;
         }
         else
         {
             timer = 0;
+
+            alveol1.SetActive(false);
+            alveol2.SetActive(false);
+            alveol3.SetActive(false);
         }
     }
 
@@ -65,7 +97,7 @@ public class StatController : MonoBehaviour
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * (200000 / velocity));
-                GetComponent<Rigidbody>().AddTorque(12000, 12000, 12000);
+                GetComponent<Rigidbody>().AddTorque(Random.Range(-80000,80000), Random.Range(-80000, 80000), Random.Range(-80000, 80000));
                 stabilization = true;
             }
         }

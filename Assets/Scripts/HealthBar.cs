@@ -36,7 +36,6 @@ public class HealthBar : MonoBehaviour
             else if (slider.value == health)
             {
                 barIsOkay = true;
-                Debug.Log("ok");
             }
             yield return new WaitForSeconds(0.01f);
         }
