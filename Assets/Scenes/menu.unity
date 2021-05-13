@@ -988,7 +988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &644738387
 Transform:
   m_ObjectHideFlags: 0
@@ -2307,15 +2307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4627fa9228d0eb4093f2f456bab1de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  play: {fileID: 762558205}
-  settings: {fileID: 1823003282}
-  quit: {fileID: 630198378}
-  generalSettings: {fileID: 1919348528}
-  qualitySettings: {fileID: 314811581}
-  soundSettings: {fileID: 905297088}
-  returnBack: {fileID: 1985768690}
-  yes: {fileID: 1698431604}
-  no: {fileID: 2040000238}
+  settingsWindow: {fileID: 0}
+  mainWindow: {fileID: 0}
+  bruitage: {fileID: 0}
 --- !u!1 &1443191949
 GameObject:
   m_ObjectHideFlags: 0

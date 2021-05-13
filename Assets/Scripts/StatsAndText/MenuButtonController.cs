@@ -6,44 +6,29 @@ using UnityEngine.UI;
 
 public class MenuButtonController : MonoBehaviour
 {
-    public Button play;
-    public Button settings;
-    public Button quit;
-    public Button generalSettings;
-    public Button qualitySettings;
-    public Button soundSettings;
-    public Button returnBack;
-    public Button yes;
-    public Button no;
-    private float fixedDeltaTime;
+    public AudioManager bruitage;
+    public CameraMenuController mainCamera;
+    [Header("Menus :")]
+    public GameObject mainWindow;
+    public GameObject settingsWindow;
+    public GameObject closeWindow;
+
     public static int menuState = 0;
 
     void Start()
     {
-        Time.timeScale = 1;
-        this.fixedDeltaTime = 0.02f;
-        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-
         menuState = 0;
-        play.onClick.AddListener(PlayGame);
-        settings.onClick.AddListener(SettingsGame);
-        quit.onClick.AddListener(QuitGame);
-        returnBack.onClick.AddListener(Return);
-        yes.onClick.AddListener(Yes);
-        no.onClick.AddListener(No);
 
         PlayerPrefs.SetInt("load", 0);
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    void Update()
-    {
+    // ============================= MAIN MENU ===================================
 
-    }
-
-    public void PlayGame()
+    public void ButtonPlay()
     {
-        if(PlayerPrefs.HasKey("dieCounter"))
+        bruitage.PlayButton();
+        if (PlayerPrefs.HasKey("dieCounter"))
         {
             PlayerPrefs.SetInt("load", 1);
             SceneManager.LoadScene(PlayerPrefs.GetString("save"));
@@ -51,28 +36,53 @@ public class MenuButtonController : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-    public void SettingsGame()
+    public void ButtonSettings()
     {
+        bruitage.PlayButton();
+        mainWindow.SetActive(false);
+        settingsWindow.SetActive(true);
+
         menuState = 1;
+        //mainCamera.Fonction2();
     }
 
-    public void QuitGame()
+    /*public void ButtonCredits()
     {
-        menuState = -1;
+        bruitage.PlayButton();
+        SceneManager.LoadScene("Credits");
+    }*/
+
+    public void ButtonQuit()
+    {
+        bruitage.PlayButton();
+        mainWindow.SetActive(false);
+        closeWindow.SetActive(true);
     }
 
-    public void Return()
+    // ============================= SETTINGS MENU ===============================
+
+    public void ButtonCloseSettings()
     {
-        menuState -= 1;
+        bruitage.PlayButton();
+        settingsWindow.SetActive(false);
+        mainWindow.SetActive(true);
+
+        //mainCamera.Fonction1();
+        menuState =  0;
     }
 
-    public void No()
+    // ============================= QUIT MENU ===================================
+
+    public void ButtonCancelQuit()
     {
-        menuState = 0;
+        bruitage.PlayButton();
+        closeWindow.SetActive(false);
+        mainWindow.SetActive(true);
     }
 
-    public void Yes()
+    public void ButtonConfirmQuit()
     {
+        bruitage.PlayButton();
         Application.Quit();
     }
 }

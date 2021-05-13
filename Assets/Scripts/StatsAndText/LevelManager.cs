@@ -6,18 +6,12 @@ using System;
 
 public class LevelManager : MonoBehaviour
 {
+    public AudioManager audioManager;
     public GameObject flash;
-    public GameObject messageGameOver;
     public GameObject wastedGameOver;
-    public GameObject buttonGameOver;
-    public GameObject fondPause;
-    public GameObject buttonResume;
-    public GameObject buttonQuitToMenu;
-    public GameObject buttonQuitToWindows;
-    public GameObject buttonYes;
-    public GameObject buttonNo;
-    public GameObject textMenuQuit;
-    public GameObject textWindowsQuit;
+
+    public PauseButtonController pauseController;
+    public GameObject GameOverWindow;
 
     private int timer = 0;
     private int timer2 = 0;
@@ -33,11 +27,6 @@ public class LevelManager : MonoBehaviour
         StatController.life = 100;
         Time.timeScale = 1;
         this.fixedDeltaTime = 0.02f;
-
-        if (isPause)
-        {
-            SwitchPause();
-        }
         
         trashRemaining = 5;
         SetTrashReminding();
@@ -78,9 +67,7 @@ public class LevelManager : MonoBehaviour
 
             if (timer2 == 150)
             {
-                messageGameOver.SetActive(true);
-                buttonGameOver.SetActive(true);
-                Cursor.lockState = CursorLockMode.Confined;
+                GameOverWindow.SetActive(true);
                 Cursor.visible = true;
             }
 
@@ -104,48 +91,11 @@ public class LevelManager : MonoBehaviour
         {
             if(!StatController.isGameOver)
             {
-                SwitchPause();
+                pauseController.Pause();
             }
         }
 
-        if(PauseButtonController.isResuming)
-        {
-            SwitchPause();
-            PauseButtonController.isResuming = false;
-        }
-
-        if(isPause)
-        {
-            if (PauseButtonController.sureToQuitState == 0)
-            {
-                buttonResume.SetActive(true);
-                buttonQuitToMenu.SetActive(true);
-                buttonQuitToWindows.SetActive(true);
-                buttonYes.SetActive(false);
-                buttonNo.SetActive(false);
-                textMenuQuit.SetActive(false);
-                textWindowsQuit.SetActive(false);
-            }
-            else if (PauseButtonController.sureToQuitState == 1)
-            {
-                buttonResume.SetActive(false);
-                buttonQuitToMenu.SetActive(false);
-                buttonQuitToWindows.SetActive(false);
-                buttonYes.SetActive(true);
-                buttonNo.SetActive(true);
-                textMenuQuit.SetActive(true);
-            }
-            else if (PauseButtonController.sureToQuitState == 2)
-            {
-                buttonResume.SetActive(false);
-                buttonQuitToMenu.SetActive(false);
-                buttonQuitToWindows.SetActive(false);
-                buttonYes.SetActive(true);
-                buttonNo.SetActive(true);
-                textWindowsQuit.SetActive(true);
-            }
-        }
-
+        // Si on veut que des trucs soit pas compliés :
 #if UNITY_EDITOR
         if(Input.GetKeyDown(KeyCode.A))
         {
@@ -201,41 +151,9 @@ public class LevelManager : MonoBehaviour
             timer = 0;
         }
     }
-
-    public void SwitchPause()
-    {
-        if (isPause)
-        {
-            isPause = false;
-            Time.timeScale = 1f;
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            fondPause.SetActive(false);
-            buttonQuitToMenu.SetActive(false);
-            buttonQuitToWindows.SetActive(false);
-            buttonResume.SetActive(false);
-            buttonYes.SetActive(false);
-            buttonNo.SetActive(false);
-            textMenuQuit.SetActive(false);
-            textWindowsQuit.SetActive(false);
-            PauseButtonController.sureToQuitState = 0;
-        }
-        else
-        {
-            isPause = true;
-            Time.timeScale = 0f;
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            fondPause.SetActive(true);
-            buttonQuitToMenu.SetActive(true);
-            buttonQuitToWindows.SetActive(true);
-            buttonResume.SetActive(true);
-        }
-    }
 }
 
+// Pour avoir des List de List (pour les routes)
 [Serializable]
 public class Routes
 {

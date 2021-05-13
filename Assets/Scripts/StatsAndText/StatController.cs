@@ -35,7 +35,7 @@ public class StatController : MonoBehaviour
 
     private void Start()
     {
-        alveol1 = GameObject.Find("AlveolModifier");
+        alveol1 = GameObject.Find("AlveolModifier1");
         alveol2 = GameObject.Find("AlveolModifier2");
         alveol3 = GameObject.Find("AlveolModifier3");
 
