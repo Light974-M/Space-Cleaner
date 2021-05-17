@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class audioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSourceMusic;
     public AudioSource audioSourceSound;
@@ -11,7 +11,7 @@ public class audioManager : MonoBehaviour
     // Différents buitages joués
     [Header("Bruitages :")]
     public AudioClip x;
-    public AudioClip y;
+    public AudioClip buttonClic;
     public AudioClip z;
 
     void Start()
@@ -23,5 +23,10 @@ public class audioManager : MonoBehaviour
     public void PlaySong()
     {
         audioSourceSound.PlayOneShot(x);
+    }
+
+    public void PlayButton()
+    {
+        audioSourceSound.PlayOneShot(buttonClic);
     }
 }

@@ -6,64 +6,93 @@ using UnityEngine.UI;
 
 public class PauseButtonController : MonoBehaviour
 {
-    public Button resume;
-    public Button quitToMenu;
-    public Button quitToWindows;
-    public Button no;
-    public Button yes;
+    public AudioManager audioManager;
+    public string nameOfMainMenu = "menu";
+    public GameObject mainPausePanel;
+    public GameObject quitToMenuPanel;
+    public GameObject quitGamePanel;
+    public GameObject settingsPanel;
 
-    public static bool isResuming = false;
-
-    public static int sureToQuitState = 0;
-
-    void Start()
+    public void Pause()
     {
-        resume.onClick.AddListener(Resume);
-        quitToMenu.onClick.AddListener(QuitToMenu);
-        quitToWindows.onClick.AddListener(QuitToWindows);
-        no.onClick.AddListener(No);
-        yes.onClick.AddListener(Yes);
+        audioManager.PlayButton();
+        mainPausePanel.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        LevelManager.isPause = true;
     }
 
-    void Update()
+    // =========================================== MAIN PAUSE ===================================
+
+    public void ButtonResume()
     {
-        
+        audioManager.PlayButton();
+        mainPausePanel.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        LevelManager.isPause = false;
     }
 
-    private void Resume()
+    public void ButtonQuitToMenu()
     {
-        isResuming = true;
+        audioManager.PlayButton();
+        mainPausePanel.SetActive(false);
+        quitToMenuPanel.SetActive(true);
     }
 
-    private void QuitToMenu()
+    public void ButtonQuitToWindows()
     {
-        sureToQuitState = 1;
+        audioManager.PlayButton();
+        mainPausePanel.SetActive(false);
+        quitGamePanel.SetActive(true);
     }
 
-    private void QuitToWindows()
+    public void ButtonSettings()
     {
-        sureToQuitState = 2;
+        audioManager.PlayButton();
+        mainPausePanel.SetActive(false);
+        settingsPanel.SetActive(true);
     }
 
-    private void Yes()
+    public void ButtonCloseSettings()
     {
-        if(sureToQuitState == 1)
-        {
-            PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
-            PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
-            SceneManager.LoadScene("menu");
-        }
-
-        if (sureToQuitState == 2)
-        {
-            PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
-            PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
-            Application.Quit();
-        }
+        audioManager.PlayButton();
+        settingsPanel.SetActive(false);
+        mainPausePanel.SetActive(true);
     }
 
-    private void No()
+    // ========================================== CONFIRM RETURN MENU ===================================
+
+    public void ButtonYesGoMenu()
     {
-        sureToQuitState = 0;
+        audioManager.PlayButton();
+        PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
+        SceneManager.LoadScene(nameOfMainMenu);
+    }
+
+    public void ButtonNoGoMenu()
+    {
+        audioManager.PlayButton();
+        quitToMenuPanel.SetActive(false);
+        mainPausePanel.SetActive(true);
+
+    }
+
+    // ========================================= CONFIRM QUIT GAME =========================================
+
+    public void ButtonYesQuitGame()
+    {
+        audioManager.PlayButton();
+        PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
+        Application.Quit();
+    }
+
+    public void ButtonNoQuitGame()
+    {
+        audioManager.PlayButton();
+        quitGamePanel.SetActive(false);
+        mainPausePanel.SetActive(true);
     }
 }

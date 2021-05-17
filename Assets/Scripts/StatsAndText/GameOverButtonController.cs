@@ -6,21 +6,11 @@ using UnityEngine.UI;
 
 public class GameOverButtonController : MonoBehaviour
 {
-    public Button retry;
-    public Button quit;
+    public AudioManager audioManager;
+    public string nameOfMainMenu = "Menu 1";
+    public string nameOfLevel = "Level1";
 
-    void Start()
-    {
-        retry.onClick.AddListener(Retry);
-        quit.onClick.AddListener(Quit);
-    }
-
-    void Update()
-    {
-        
-    }
-
-    void Retry()
+    public void Retry()
     {
         DieCounterController.matriculationNumber++;
 
@@ -34,13 +24,13 @@ public class GameOverButtonController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void Quit()
+    public void Quit()
     {
         DieCounterController.matriculationNumber++;
 
         PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
         PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
 
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene(nameOfMainMenu);
     }
 }
