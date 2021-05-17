@@ -20,6 +20,7 @@ public class PauseButtonController : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         LevelManager.isPause = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // =========================================== MAIN PAUSE ===================================
@@ -31,6 +32,7 @@ public class PauseButtonController : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = false;
         LevelManager.isPause = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ButtonQuitToMenu()
@@ -68,6 +70,7 @@ public class PauseButtonController : MonoBehaviour
         audioManager.PlayButton();
         PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
         PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
+        LevelManager.isPause = false;
         SceneManager.LoadScene(nameOfMainMenu);
     }
 
@@ -86,6 +89,7 @@ public class PauseButtonController : MonoBehaviour
         audioManager.PlayButton();
         PlayerPrefs.SetString("save", SceneManager.GetActiveScene().name);
         PlayerPrefs.SetInt("dieCounter", DieCounterController.matriculationNumber);
+        LevelManager.isPause = false;
         Application.Quit();
     }
 

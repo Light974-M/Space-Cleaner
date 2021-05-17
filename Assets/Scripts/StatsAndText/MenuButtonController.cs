@@ -8,6 +8,7 @@ public class MenuButtonController : MonoBehaviour
 {
     public AudioManager bruitage;
     public CameraMenuController mainCamera;
+    public string levelToLoad = "Level1";
     [Header("Menus :")]
     public GameObject mainWindow;
     public GameObject settingsWindow;
@@ -33,7 +34,7 @@ public class MenuButtonController : MonoBehaviour
             PlayerPrefs.SetInt("load", 1);
             SceneManager.LoadScene(PlayerPrefs.GetString("save"));
         }
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void ButtonSettings()
