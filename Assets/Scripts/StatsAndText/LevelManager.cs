@@ -16,30 +16,35 @@ public class LevelManager : MonoBehaviour
 
     private int timer = 0;
     private int timer2 = 0;
-    private float fixedDeltaTime;
+    private float fixedDeltaTime = 0.02f;
     
     public static bool isPause = false;
 	public int trashRemaining;
     public Text trashRemainingText;
 
+    private bool isLastChancePassingToFalse = false;
+
     void Start()
     {
         StatController.isGameOver = false;
         StatController.life = 100;
-        Time.timeScale = 1;
-        this.fixedDeltaTime = 0.02f;
         
         trashRemaining = 5;
         SetTrashReminding();
 
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+
         if (SceneManager.GetActiveScene().name == "tuto")
         {
-            tutoController.isSpeaking = true;
+            tutoController.isSpeaking = false;
             tutoController.speakingIndex = 0;
+
         }
         else
         {
             tutoController.isSpeaking = false;
+
         }
     }
 
@@ -124,6 +129,8 @@ public class LevelManager : MonoBehaviour
     {
         if (StatController.lastChance)
         {
+            isLastChancePassingToFalse = true;
+
             flash.SetActive(true);
             if (timer == 0)
             {
@@ -156,10 +163,15 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            flash.SetActive(false);
-            Time.timeScale = 1;
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-            timer = 0;
+            if(isLastChancePassingToFalse)
+            {
+                flash.SetActive(false);
+                Time.timeScale = 1;
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+                timer = 0;
+
+                isLastChancePassingToFalse = false;
+            }
         }
     }
 }

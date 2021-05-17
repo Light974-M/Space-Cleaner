@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class StatController : MonoBehaviour
@@ -38,6 +39,7 @@ public class StatController : MonoBehaviour
         alveol1 = GameObject.Find("AlveolModifier1");
         alveol2 = GameObject.Find("AlveolModifier2");
         alveol3 = GameObject.Find("AlveolModifier3");
+
 
         life = 100;   
     }
@@ -142,7 +144,7 @@ public class StatController : MonoBehaviour
         {
             LoseLife(20);
             healthBar.SetHealth(life);
-            if(life > 0)
+            if (life > 0)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * (200000 / velocity));
@@ -167,7 +169,14 @@ public class StatController : MonoBehaviour
         }
         if(life <= 0)
         {
-            isGameOver = true;
+            if(SceneManager.GetActiveScene().name == "tuto")
+            {
+                LoseLife(-100);
+            }
+            else
+            {
+                isGameOver = true;
+            }
         }
 
         lastChanceInit = false;
