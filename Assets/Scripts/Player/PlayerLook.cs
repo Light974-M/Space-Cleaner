@@ -20,7 +20,7 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
-        if (!StatController.isGameOver && !LevelManager.isPause)
+        if (!StatController.isGameOver && !LevelManager.isPause && !tutoController.isSpeaking)
         {
             Look();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -41,6 +42,16 @@ public class LevelManager : MonoBehaviour
         
         trashRemaining = 5;
         SetTrashReminding();
+
+        if (SceneManager.GetActiveScene().name == "tuto")
+        {
+            tutoController.isSpeaking = true;
+            tutoController.speakingIndex = 0;
+        }
+        else
+        {
+            tutoController.isSpeaking = false;
+        }
     }
 
     void Update()

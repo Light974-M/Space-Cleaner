@@ -12,20 +12,24 @@ public class PlayerMove : MonoBehaviour
 
     //initialisation des variables numériques.
     private int timer = 0;
+    private int timer2 = 0;
     private int timer3 = 0;
     private float dashCoolDown = 1.2f;
     public static bool isGodMod = false;
     private bool isDashing = false;
-    private bool isDashingWithoutRecharging = false;
+    private bool isRegainDash = false;
     private bool isLastChanceDashing = false;
     private bool lastChanceDashFirst = true;
     private int valueOfLastChanceDash = 0;
+    private bool stabilizeDashing = false;
+
+    private float dashSmooth = 2000;
 
     //initialisation des objets(vecteurs).
     private Vector3 memoVelocity;
 
     public DashBar dashBar;
-    [Range(0,1800)]
+    [Range(0,100)]
     private float dashBarValue;
 
     private float velocity;
@@ -35,33 +39,79 @@ public class PlayerMove : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         player = gameObject;
+        dashBarValue = 100;
     }
 
     //le update, principale boucle réappeller a chaques rafraichissements.
     private void Update()
     {
+        dashBar.SetDash(dashBarValue);
+
+        if (stabilizeDashing)
+        {
+            if(timer2 < 30)
+            {
+                rb.AddForce(-rb.velocity * 100);
+                timer2++;
+            }
+            else
+            {
+                stabilizeDashing = false;
+                timer2 = 0;
+            }
+        }
+
         if(!StatController.isGameOver && !LevelManager.isPause)
         {
-            MoveAndStabilize();
+            Debug.Log(dashBarValue);
 
-            if (!isGodMod && !StatController.lastChance)
+            if (!isDashing)
             {
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                MoveAndStabilize();
+
+                if(dashBarValue < 100)
                 {
-                    isDashing = true;
-                    isDashingWithoutRecharging = true;
+                    dashBarValue += 0.1f;
+                }
+                else
+                {
+                    isRegainDash = false;
+                    dashBarValue = 100;
                 }
             }
 
-            if (isDashing)
+            if (!isGodMod && !StatController.lastChance)
             {
-                Dash();
+                if(!isRegainDash)
+                {
+                    if (dashBarValue > 0)
+                    {
+                        if (Input.GetKey(KeyCode.LeftShift))
+                        {
+                            isDashing = true;
+                            dashBarValue -= 0.5f;
+                            Dash();
+                        }
+                        else
+                        {
+                            isDashing = false;
+                            dashSmooth = 2000;
+                            timer = 0;
+                        }
+                    }
+                    else
+                    {
+                        isDashing = false;
+                        dashSmooth = 2000;
+                        timer = 0;
+                        isRegainDash = true;
+                    }
+                }
             }
             else
             {
                 timer = 0;
                 dashBarValue = 300;
-                camMain.GetComponent<Animator>().enabled = false;
             }
 
             GodMod();
@@ -96,20 +146,19 @@ public class PlayerMove : MonoBehaviour
         else
         {
             isDashing = false;
-            camMain.GetComponent<Animator>().enabled = false;
         }
 
         velocity = Mathf.Sqrt((rb.velocity.x * rb.velocity.x) + (rb.velocity.y * rb.velocity.y) + (rb.velocity.z * rb.velocity.z));
 
-        if(!isDashingWithoutRecharging && !isLastChanceDashing && !isGodMod)
+        if(!isLastChanceDashing && !isGodMod)
         {
-            if(camMain.fieldOfView < 100)
+            if(camMain.fieldOfView < 140)
             {
                 camMain.fieldOfView = 60 + velocity;
             }
             else
             {
-                camMain.fieldOfView = 99;
+                camMain.fieldOfView = 139;
             }
         }
     }
@@ -128,6 +177,10 @@ public class PlayerMove : MonoBehaviour
                 rb.AddForce(-rb.velocity * 40);
             }
 
+            if(dashBarValue == 0)
+            {
+                stabilizeDashing = true;
+            } 
 
             //rb.AddForce(0, 0, 0);
         }
@@ -141,6 +194,11 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(-rb.velocity * 40);
             }
+
+            if (dashBarValue == 0)
+            {
+                stabilizeDashing = true;
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -152,6 +210,11 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(-rb.velocity * 40);
             }
+
+            if (dashBarValue == 0)
+            {
+                stabilizeDashing = true;
+            }
         }
         else
         {
@@ -159,6 +222,7 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(-rb.velocity * 130);
             }
+
             rb.AddForce(-rb.velocity * 25);
         }
     }
@@ -166,64 +230,12 @@ public class PlayerMove : MonoBehaviour
     //la fonction de dash.
     private void Dash()
     {
-        if (StatController.lastChance)
+        if(timer < 60)
         {
-            isDashing = false;
-            camMain.GetComponent<Animator>().enabled = false;
-            rb.AddForce(-rb.velocity * 8000);
+            rb.AddForce(transform.forward * dashSmooth);
+            dashSmooth -= 33;
+            timer++;
         }
-
-        if (timer == 0)
-        {
-            camMain.GetComponent<Animator>().enabled = true;
-            memoVelocity = rb.velocity;
-            rb.AddForce(transform.forward * 200000);
-        }
-        if (timer >= 200 && timer < 300)
-        {
-            rb.AddForce(-rb.velocity * 80);
-        }
-        if (timer > 1800)
-        {
-            isDashing = false;
-        }
-
-        if (timer > 0 && timer < 50)
-        {
-            camMain.fieldOfView += 1f;
-        }
-
-        if (timer > 150 && timer < 300)
-        {
-            camMain.fieldOfView -= dashCoolDown;
-            dashCoolDown = dashCoolDown / 1.02f;
-        }
-        if (timer == 300)
-        {
-            dashCoolDown = 1;
-            isDashingWithoutRecharging = false;
-        }
-        if(timer == 200)
-        {
-            camMain.GetComponent<Animator>().enabled = false;
-        }
-
-        // Pour gérer l'affichage de la barre (attention tout recalculer si changement des durées de dash et de recharge)
-        if(timer < 300)
-        {
-            dashBarValue -= 1.4f;
-            dashBar.SetDash(dashBarValue);
-        }
-        else
-        {
-            if(dashBarValue < 0)
-            {
-                dashBarValue = 0;
-            }
-            dashBarValue += 0.2f;
-            dashBar.SetDash(dashBarValue);
-        }
-        timer++;
     }
 
     //la fonction du GodMod.
