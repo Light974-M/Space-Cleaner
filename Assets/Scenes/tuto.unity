@@ -686,7 +686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "what do you wait ? \norders ?\nyour such a robot..."
+  m_text: "What do you wait ? \nOrders ?\nYour such a robot..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -1145,6 +1145,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   passButton: {fileID: 1194700592}
+  garbageController: {fileID: 2012212776}
+--- !u!1 &272794852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272794853}
+  m_Layer: 5
+  m_Name: text15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &272794853
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272794852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 645611780}
+  m_Father: {fileID: 1861022767}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &272843408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: now, try to stabilize with Ctrl(      )
+  m_text: Now, try to stabilize with Ctrl(      )
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -1747,7 +1784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: you made it, i should congratulate you, but you are a robot, so i will
+  m_text: You made it, I should congratulate you, but you are a robot, so i will
     just say that your next model will necesseraly do better, no offense.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
@@ -1882,7 +1919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "you are moving... that's pretty great, even if you are doing exactly \nlike
+  m_text: "You are moving... that's pretty great, even if you are doing exactly \nlike
     the previous model."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
@@ -2363,7 +2400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: you have two hands, isn't tat great for a robot ? so, try to grab a garbage
+  m_text: You have two hands, isn't tat great for a robot ? so, try to grab a garbage
     with LeftClick(       ).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
@@ -2572,7 +2609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: analyze completed, you are fully functional, your serial number is the
+  m_text: Analyze completed, you are fully functional, your serial number is the
     code at the top of your vision device, you are the first model of your serie,
     but we will create a new model each time you would break...
   m_isRightToLeft: 0
@@ -3198,6 +3235,147 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642859315}
   m_CullTransparentMesh: 0
+--- !u!1 &645611779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 645611780}
+  - component: {fileID: 645611782}
+  - component: {fileID: 645611781}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &645611780
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645611779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 272794853}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 36, y: -255}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &645611781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645611779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Don''t forget :
+
+    "clean for the driver"
+
+    "die for the driver"
+
+    "come
+    back for the driver"'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
+  m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -328.87482, y: -130.34854, z: -31.794048, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &645611782
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645611779}
+  m_CullTransparentMesh: 0
 --- !u!1 &652181009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,7 +3432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'your stabilization core program is perfectly running, good.
+  m_text: 'Your stabilization core program is perfectly running, good.
 
     use it
     to stop you in space, even if einstein proved that relatively...
@@ -3530,11 +3708,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: '...
 
-    ok, not fun, understood, jokes device failing.
+    Ok, not fun, understood, jokes device failing.
 
-    good luck...
+    Good luck...
 
-    well,
+    Well,
     more like "good program, and pray that there is no bug in there."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
@@ -4622,7 +4800,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '.......biiiip....
 
-    Welcom to Cleaning Road Science(C.R.S.), you are
+    Welcome to Cleaning Road Science(C.R.S.), you are
     the last model of the most modern developped technologies of our society, you
     are about to download our cleaning program.'
   m_isRightToLeft: 0
@@ -5790,7 +5968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: now, we'll see if your high-power reactors works, try them with LeftShift(       
+  m_text: Now, we'll see if your high-power reactors works, try them with LeftShift(       
     ).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
@@ -7490,7 +7668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: first, move with Z, Q, and D(left joystick).
+  m_text: First, move with Z, Q, and D(left joystick).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -7624,7 +7802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: you are now low health, try to dash while there is the bullet time.
+  m_text: You are now low health, try to dash while there is the bullet time.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -8210,7 +8388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: if you broke yourself too hard, a bullet time will appear, letting you
+  m_text: If you broke yourself too hard, a bullet time will appear, letting you
     dash to the left or to the right, with Q or D(left joystick).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
@@ -8656,7 +8834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: i know you are a low model, but you can surely understand the meaning of
+  m_text: I know you are a low model, but you can surely understand the meaning of
     "bullet time", yes, you calculated, there is the word "time" in it, so, i give
     you the bullet time again, try to do it faster.
   m_isRightToLeft: 0
@@ -8852,6 +9030,7 @@ RectTransform:
   - {fileID: 1654456891}
   - {fileID: 1843842815}
   - {fileID: 1957622833}
+  - {fileID: 272794853}
   m_Father: {fileID: 286942686}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9594,6 +9773,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2012212774}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2012212776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4508896719149706646, guid: 1b6f18731bcfc574ba4bdf43d4ef7915,
+    type: 3}
+  m_PrefabInstance: {fileID: 2012212774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b7db36c2e32c846b6aad778c19889f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2027896664
 GameObject:
   m_ObjectHideFlags: 0
@@ -9650,7 +9841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: good, notice that if you lose your arms, well, try at least to be useful
+  m_text: Good, notice that if you lose your arms, well, try at least to be useful
     by losing them out of the road.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}

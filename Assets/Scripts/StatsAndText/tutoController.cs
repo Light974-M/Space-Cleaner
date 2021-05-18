@@ -25,6 +25,7 @@ public class tutoController : MonoBehaviour
     private GameObject text12;
     private GameObject text13;
     private GameObject text14;
+    private GameObject text15;
     private GameObject textLoop1;
 
     public Button passButton;
@@ -45,6 +46,8 @@ public class tutoController : MonoBehaviour
     private int memoSpeakingIndex = 0;
     private int nonSpeakingPhaseSelector = 1000;
 
+    public garbageController garbageController;
+
     void Start()
     {
         player = GameObject.Find("PivotCam");
@@ -62,6 +65,7 @@ public class tutoController : MonoBehaviour
         text12 = GameObject.Find("text12");
         text13 = GameObject.Find("text13");
         text14 = GameObject.Find("text14");
+        text15 = GameObject.Find("text15");
         textLoop1 = GameObject.Find("textLoop1");
 
         fondTuto = GameObject.Find("TutoTextFond");
@@ -120,6 +124,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
 
             fondTuto.SetActive(false);
@@ -162,6 +167,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 1)
@@ -180,6 +186,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
 
             nonSpeakingPhaseSelector = 1000;
@@ -200,6 +207,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 3)
@@ -218,6 +226,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
 
             isZ = false;
@@ -239,6 +248,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 5)
@@ -257,6 +267,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
 
             isZ = false;
@@ -282,6 +293,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 7)
@@ -300,6 +312,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
 
             isZ = false;
@@ -321,6 +334,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 9)
@@ -339,6 +353,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 10)
@@ -357,6 +372,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
 
             isZ = false;
@@ -379,6 +395,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(true);
             text13.SetActive(false);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 12)
@@ -397,6 +414,7 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(true);
             text14.SetActive(false);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 13)
@@ -415,9 +433,29 @@ public class tutoController : MonoBehaviour
             text12.SetActive(false);
             text13.SetActive(false);
             text14.SetActive(true);
+            text15.SetActive(false);
             textLoop1.SetActive(false);
         }
         else if (speakingIndex == 14)
+        {
+            text1.SetActive(false);
+            text2.SetActive(false);
+            text3.SetActive(false);
+            text4.SetActive(false);
+            text5.SetActive(false);
+            text6.SetActive(false);
+            text7.SetActive(false);
+            text8.SetActive(false);
+            text9.SetActive(false);
+            text10.SetActive(false);
+            text11.SetActive(false);
+            text12.SetActive(false);
+            text13.SetActive(false);
+            text14.SetActive(false);
+            text15.SetActive(true);
+            textLoop1.SetActive(false);
+        }
+        else if (speakingIndex == 15)
         {
             SceneManager.LoadScene("Level1");
         }
