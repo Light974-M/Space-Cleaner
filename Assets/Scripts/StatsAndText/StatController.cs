@@ -49,6 +49,7 @@ public class StatController : MonoBehaviour
         velocity = Mathf.Sqrt((GetComponent<Rigidbody>().velocity.x* GetComponent<Rigidbody>().velocity.x) + (GetComponent<Rigidbody>().velocity.y * GetComponent<Rigidbody>().velocity.y) + (GetComponent<Rigidbody>().velocity.z * GetComponent<Rigidbody>().velocity.z));
 
         indicator.transform.LookAt(car.transform);
+        indicator.transform.eulerAngles = new Vector3(indicator.transform.eulerAngles.x, indicator.transform.eulerAngles.y, transform.eulerAngles.z);
         if(indicator.transform.localEulerAngles.y > 45 && indicator.transform.localEulerAngles.y <= 170)
         {
             y = 45;
