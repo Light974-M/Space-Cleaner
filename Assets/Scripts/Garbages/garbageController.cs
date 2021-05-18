@@ -5,7 +5,7 @@ using UnityEngine;
 public class garbageController : MonoBehaviour
 {
     private GameObject player;
-    private bool isGrab = false;
+    public bool isGrab = false;
     private GameObject targetGrab;
     private GameObject targetVelocity;
     public static GameObject pressToGrabText;

@@ -13,11 +13,14 @@ public class PauseButtonController : MonoBehaviour
     public GameObject quitGamePanel;
     public GameObject settingsPanel;
 
+    private float fixedDeltaTime = 0.02f;
+
     public void Pause()
     {
         audioManager.PlayButton();
         mainPausePanel.SetActive(true);
         Time.timeScale = 0;
+        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         Cursor.visible = true;
         LevelManager.isPause = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -29,10 +32,16 @@ public class PauseButtonController : MonoBehaviour
     {
         audioManager.PlayButton();
         mainPausePanel.SetActive(false);
-        Time.timeScale = 1;
-        Cursor.visible = false;
+        if(!tutoController.isSpeaking)
+        {
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        
         LevelManager.isPause = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     public void ButtonQuitToMenu()

@@ -63,7 +63,6 @@ public class PlayerMove : MonoBehaviour
 
         if(!StatController.isGameOver && !LevelManager.isPause)
         {
-            Debug.Log(dashBarValue);
 
             if (!isDashing)
             {
