@@ -34,6 +34,8 @@ public class PlayerMove : MonoBehaviour
 
     private float velocity;
 
+    private float translation = 0;
+
     //le start.
     private void Start()
     {
@@ -160,11 +162,30 @@ public class PlayerMove : MonoBehaviour
                 camMain.fieldOfView = 139;
             }
         }
+
+        translation = Input.GetAxis("Vertical") * 3;
     }
 
     //la fonction de déplacement et de stabilisation.
     private void MoveAndStabilize()
     {
+        if(translation > 0)
+        {
+            if (rb.velocity.magnitude < 20)
+            {
+                rb.AddForce(transform.right * -(translation * 400));
+            }
+            else
+            {
+                rb.AddForce(-rb.velocity * 40);
+            }
+
+            if (dashBarValue == 0)
+            {
+                stabilizeDashing = true;
+            }
+        }
+
         if (Input.GetKey(KeyCode.Z))
         {
             if (rb.velocity.magnitude < 20)
@@ -216,8 +237,8 @@ public class PlayerMove : MonoBehaviour
             }
         }
         else
-        {
-            if (Input.GetKey(KeyCode.LeftControl))
+        { 
+            if (Input.GetKey(KeyCode.LeftControl) | Input.GetKey(KeyCode.Joystick1Button1))
             {
                 rb.AddForce(-rb.velocity * 130);
             }
