@@ -24,6 +24,10 @@ public class LevelManager : MonoBehaviour
 
     private bool isLastChancePassingToFalse = false;
 
+    // Pour un pop plus aléatoire des déchets
+    public List<Transform> garbageSpawns;
+    public List<GameObject> garbages;
+
     void Start()
     {
         StatController.isGameOver = false;
@@ -39,12 +43,16 @@ public class LevelManager : MonoBehaviour
         {
             tutoController.isSpeaking = false;
             tutoController.speakingIndex = 0;
-
         }
         else
         {
             tutoController.isSpeaking = false;
 
+            /*for (int i = 0; i < 5; i++)
+            {
+                GameObject newGarbage = Instantiate(garbages[UnityEngine.Random.Range(0, garbages.Count)], garbageSpawns[UnityEngine.Random.Range(0, garbageSpawns.Count)]);
+                Debug.Log("1 déchet");
+            }*/
         }
     }
 
@@ -85,6 +93,7 @@ public class LevelManager : MonoBehaviour
             {
                 GameOverWindow.SetActive(true);
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
             }
 
             if (timer2 == 20)
