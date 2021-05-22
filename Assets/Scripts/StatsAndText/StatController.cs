@@ -34,6 +34,8 @@ public class StatController : MonoBehaviour
 
     public static float velocity;
 
+    public AnimController animController;
+
     private void Start()
     {
         alveol1 = GameObject.Find("AlveolModifier1");
@@ -151,6 +153,8 @@ public class StatController : MonoBehaviour
                 GetComponent<Rigidbody>().AddForce(-GetComponent<Rigidbody>().velocity * (200000 / velocity));
                 GetComponent<Rigidbody>().AddTorque(Random.Range(-80000,80000), Random.Range(-80000, 80000), Random.Range(-80000, 80000));
                 stabilization = true;
+                // Animation du coup
+                animController.Damage();
             }
         }
     }
