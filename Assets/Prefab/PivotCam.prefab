@@ -9976,6 +9976,7 @@ GameObject:
   - component: {fileID: 3920651061030261848}
   - component: {fileID: 1257360202}
   - component: {fileID: 4897369968187654990}
+  - component: {fileID: 1664391119440134965}
   m_Layer: 12
   m_Name: PivotCam
   m_TagString: Untagged
@@ -10081,10 +10082,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.9316474
+  m_Radius: 0.6164304
   m_Height: 2.7478802
   m_Direction: 1
-  m_Center: {x: 0, y: -0.39889756, z: -0.7970318}
+  m_Center: {x: 0, y: -0.39889747, z: -1.1122496}
 --- !u!114 &1257360202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10113,6 +10114,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7503116107221521429}
   effect: {fileID: 5904224552236199173}
+--- !u!135 &1664391119440134965
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3920651061030261851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.75193
+  m_Center: {x: 0, y: -0.34, z: -1.1966033}
 --- !u!1 &3920651061171281634
 GameObject:
   m_ObjectHideFlags: 0
@@ -10215,7 +10229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3920651062576274167}
   m_LocalRotation: {x: 0.0050674975, y: -0, z: -0, w: 0.9999872}
-  m_LocalPosition: {x: 0, y: 0.007, z: -1.194}
+  m_LocalPosition: {x: 0, y: 0, z: -1.194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 529338580}
@@ -20418,15 +20432,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f24a6cbec33f149810f419b124c59b, type: 3}
---- !u!1 &5994228434180545899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11f24a6cbec33f149810f419b124c59b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6912654692575977530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6369241800834598865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11f24a6cbec33f149810f419b124c59b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6912654692575977530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5994228434180545899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11f24a6cbec33f149810f419b124c59b,
     type: 3}
   m_PrefabInstance: {fileID: 6912654692575977530}
   m_PrefabAsset: {fileID: 0}

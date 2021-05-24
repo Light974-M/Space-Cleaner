@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
         StatController.isGameOver = false;
         StatController.life = 100;
         
-        trashRemaining = 5;
+        trashRemaining = 8;
         SetTrashReminding();
 
         Time.timeScale = 1;

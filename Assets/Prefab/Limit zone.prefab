@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1387271025111562095}
   - component: {fileID: 5934497760988216282}
   - component: {fileID: 4749163600023549511}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Limit zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
