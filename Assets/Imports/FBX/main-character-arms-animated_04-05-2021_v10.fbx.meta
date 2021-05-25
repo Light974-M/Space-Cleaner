@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11f24a6cbec33f149810f419b124c59b
+guid: 0fe2a96d1645d6749bc4dd8815015aa3
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
@@ -10,7 +10,7 @@ ModelImporter:
       74: -3443985681492114326
     second: Grab
   - first:
-      74: 7329650112888884107
+      74: 4854180139978558704
     second: IdleGrab
   - first:
       74: 3651350446308603674
@@ -172,7 +172,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -219,7 +219,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

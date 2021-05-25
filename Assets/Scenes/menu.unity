@@ -1227,8 +1227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444, y: 369.94}
-  m_SizeDelta: {x: 793.6184, y: 340.1222}
+  m_AnchoredPosition: {x: -0.000011444, y: 356.6}
+  m_SizeDelta: {x: 960.18396, y: 291.61835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386136494
 MonoBehaviour:
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d988728bf2c3eff4cad19f7d90de7b72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 444226bd15f8d0745b8bbd33bb3579d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1555,6 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bruitage: {fileID: 736846196}
   mainCamera: {fileID: 1696446928}
+  levelToLoad: Level1
   mainWindow: {fileID: 1186631528}
   settingsWindow: {fileID: 420360987}
   closeWindow: {fileID: 472022621}

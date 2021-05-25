@@ -243,5 +243,8 @@ MonoBehaviour:
   audioSourceSound: {fileID: 1480430758241616746}
   music: {fileID: 0}
   x: {fileID: 0}
-  y: {fileID: 0}
+  buttonClic: {fileID: 0}
   z: {fileID: 0}
+  dashBegin: {fileID: 8300000, guid: 845beb3f802464d439aac9afd643e2e4, type: 3}
+  dash: {fileID: 8300000, guid: 589dcfede6e7a7d4cb648ff140deb876, type: 3}
+  dashEnd: {fileID: 8300000, guid: 23221be62da00084999fa295e98de03d, type: 3}

@@ -11,6 +11,8 @@ public class LimitZone : MonoBehaviour
 
     public int timeBeforeDie;
 
+    private Rigidbody garbageRb;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -28,6 +30,12 @@ public class LimitZone : MonoBehaviour
             {
                 StatController.isGameOver = true;
             }
+        }
+        else if(other.gameObject.layer == LayerMask.NameToLayer("Garbage"))
+        {
+            garbageRb = other.gameObject.GetComponent<Rigidbody>();
+            garbageRb.AddForce(-garbageRb.velocity * 100);
+            Debug.Log("ralentis");
         }
     }
 

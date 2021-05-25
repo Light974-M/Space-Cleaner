@@ -7,12 +7,16 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSourceMusic;
     public AudioSource audioSourceSound;
     // Musique jouée in game
-    public AudioClip music; 
+    public AudioClip music;
     // Différents buitages joués
     [Header("Bruitages :")]
     public AudioClip x;
     public AudioClip buttonClic;
     public AudioClip z;
+    [Header("Dash :")]
+    public AudioClip dashBegin;
+    public AudioClip dash;
+    public AudioClip dashEnd;
 
     void Start()
     {
@@ -28,5 +32,21 @@ public class AudioManager : MonoBehaviour
     public void PlayButton()
     {
         audioSourceSound.PlayOneShot(buttonClic);
+    }
+
+    IEnumerator DashCoroutine()
+    {
+        audioSourceSound.PlayOneShot(dashBegin);
+        bool begin = true;
+        yield return new WaitForSeconds(0.5f);
+        while(begin)
+        {
+            audioSourceSound.PlayOneShot(dash);
+            if(Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                begin = false;
+            }
+        }
+        audioSourceSound.PlayOneShot(dashEnd);
     }
 }
