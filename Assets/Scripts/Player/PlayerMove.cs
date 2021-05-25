@@ -64,7 +64,7 @@ public class PlayerMove : MonoBehaviour
         if(!StatController.isGameOver && !LevelManager.isPause)
         {
 
-            if (!isDashing)
+            if (!isDashing && !tutoController.isSpeaking)
             {
                 MoveAndStabilize();
 
@@ -79,7 +79,7 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            if (!isGodMod && !StatController.lastChance)
+            if (!isGodMod && !StatController.lastChance && !tutoController.isSpeaking)
             {
                 if(!isRegainDash)
                 {
@@ -171,10 +171,6 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(transform.forward * 400);
             }
-            else
-            {
-                rb.AddForce(-rb.velocity * 40);
-            }
 
             if(dashBarValue == 0)
             {
@@ -189,10 +185,6 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(transform.right * -400);
             }
-            else
-            {
-                rb.AddForce(-rb.velocity * 40);
-            }
 
             if (dashBarValue == 0)
             {
@@ -204,10 +196,6 @@ public class PlayerMove : MonoBehaviour
             if (rb.velocity.magnitude < 20)
             {
                 rb.AddForce(transform.right * 400);
-            }
-            else
-            {
-                rb.AddForce(-rb.velocity * 40);
             }
 
             if (dashBarValue == 0)

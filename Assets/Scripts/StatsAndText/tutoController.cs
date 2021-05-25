@@ -27,6 +27,11 @@ public class tutoController : MonoBehaviour
     private GameObject text14;
     private GameObject text15;
     private GameObject textLoop1;
+    private GameObject textConstant1;
+    private GameObject textConstant2;
+    private GameObject textConstant3;
+    private GameObject textConstant4;
+    private GameObject textConstant5;
 
     public Button passButton;
 
@@ -68,6 +73,12 @@ public class tutoController : MonoBehaviour
         text15 = GameObject.Find("text15");
         textLoop1 = GameObject.Find("textLoop1");
 
+        textConstant1 = GameObject.Find("textConstant1");
+        textConstant2 = GameObject.Find("textConstant2");
+        textConstant3 = GameObject.Find("textConstant3");
+        textConstant4 = GameObject.Find("textConstant4");
+        textConstant5 = GameObject.Find("textConstant5");
+
         fondTuto = GameObject.Find("TutoTextFond");
         bouttonPass = GameObject.Find("passText");
 
@@ -103,10 +114,11 @@ public class tutoController : MonoBehaviour
         {
             fondTuto.SetActive(true);
             bouttonPass.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
             Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+
         }
         else
         {
@@ -169,6 +181,12 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant1.SetActive(false);
+            textConstant2.SetActive(false);
+            textConstant3.SetActive(false);
+            textConstant4.SetActive(false);
+            textConstant5.SetActive(false);
         }
         else if (speakingIndex == 1)
         {
@@ -188,6 +206,8 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant1.SetActive(true);
 
             nonSpeakingPhaseSelector = 1000;
         }
@@ -209,6 +229,8 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant1.SetActive(false);
         }
         else if (speakingIndex == 3)
         {
@@ -228,6 +250,9 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant2.SetActive(true);
+            textConstant1.SetActive(false);
 
             isZ = false;
             nonSpeakingPhaseSelector = 1001;
@@ -250,6 +275,9 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant2.SetActive(false);
+
         }
         else if (speakingIndex == 5)
         {
@@ -269,6 +297,8 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant3.SetActive(true);
 
             isZ = false;
             isQ = false;
@@ -295,6 +325,8 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant3.SetActive(false);
         }
         else if (speakingIndex == 7)
         {
@@ -314,6 +346,8 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant4.SetActive(true);
 
             isZ = false;
             nonSpeakingPhaseSelector = 1003;
@@ -336,6 +370,9 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant4.SetActive(false);
+
         }
         else if (speakingIndex == 9)
         {
@@ -375,6 +412,8 @@ public class tutoController : MonoBehaviour
             text15.SetActive(false);
             textLoop1.SetActive(false);
 
+            textConstant5.SetActive(true);
+
             isZ = false;
             isQ = true;
             nonSpeakingPhaseSelector = 1004;
@@ -397,6 +436,8 @@ public class tutoController : MonoBehaviour
             text14.SetActive(false);
             text15.SetActive(false);
             textLoop1.SetActive(false);
+
+            textConstant5.SetActive(false);
         }
         else if (speakingIndex == 12)
         {
