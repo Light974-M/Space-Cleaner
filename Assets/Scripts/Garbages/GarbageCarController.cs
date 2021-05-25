@@ -6,24 +6,17 @@ public class GarbageCarController : MonoBehaviour
 {
     public LevelManager levelManager;
     public Transform killGarbagePoint;
+    private garbageController garbageControllerBis;
 
     private void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log("Collision");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Garbage"))
         {
-            Debug.Log("Garbage detected");
-            //Vector3 dir = collision.transform.position - killGarbagePoint.position;
-            //collision.transform.Translate(dir.normalized * 1 * Time.deltaTime, Space.World);
-
-            //if (Vector3.Distance(transform.position, collision.transform.position) < 4f)
-            //{
-                Debug.Log("Garbage destroyed");
-                Destroy(collision.gameObject);
-                garbageController.pressToGrabText.SetActive(false);
-                levelManager.trashRemaining -= 1;
-                levelManager.SetTrashReminding();
-            //}
+            garbageControllerBis = collision.gameObject.GetComponent<garbageController>();
+            //garbageController.pressToGrabText.SetActive(false);
+            garbageControllerBis.Destruction();
+            levelManager.trashRemaining -= 1;
+            levelManager.SetTrashReminding();
         }
     }
 }

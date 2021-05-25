@@ -16,6 +16,8 @@ public class garbageController : MonoBehaviour
     public LevelManager levelManager;
     private GameObject levelmanage;
 
+    private AnimController animController;
+
     void Start()
     {
         pivotPressToGrab = GameObject.Find("pivot2pressToGrab");
@@ -52,7 +54,10 @@ public class garbageController : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, transform.position) < 10)
             {
+                Debug.Log("Grab");
                 isGrab = true;
+                animController = player.GetComponent<AnimController>();
+                animController.SetGrab(true);
             }
         }
     }
@@ -99,6 +104,7 @@ public class garbageController : MonoBehaviour
                 gameObject.GetComponent<Rigidbody>().AddForce((targetGrab.transform.position - targetVelocity.transform.position) * 80000);
 
                 isGrab = false;
+                animController.SetGrab(false);
             }
         }
     }
@@ -120,5 +126,13 @@ public class garbageController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Destruction()
+    {
+        pressToGrabText.SetActive(false);
+        animController.SetGrab(false);
+        Debug.Log("Garbage destroyed");
+        Destroy(gameObject);
     }
 }

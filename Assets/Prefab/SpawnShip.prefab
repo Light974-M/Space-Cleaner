@@ -46,9 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceShips:
   - {fileID: 8668286901157556253, guid: 8b55838e6c188e742b6a3c1f2f1702ed, type: 3}
-  - {fileID: 8668286901157556253, guid: f54cdcfc3625fc14fb3f1e55810a28a7, type: 3}
-  - {fileID: 8668286901157556253, guid: c1db5f3764b7c2e4293cced062b0af5e, type: 3}
-  - {fileID: 2282941482383856758, guid: b8ea309baac147d499d780942774874d, type: 3}
   tempsMin: 2
   tempsMax: 5
   target: {fileID: 5401975982122943176}
@@ -76,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5401975982122943177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 121.9}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5401975981416366223}
