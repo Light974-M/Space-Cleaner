@@ -22,13 +22,13 @@ public class SpaceShipControllerV2 : MonoBehaviour
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
         transform.LookAt(target);
-        if (Vector3.Distance(transform.position, target.position) < 2f)
+        if (Vector3.Distance(transform.position, target.position) < 5f)
         {
             GameObject.Destroy(gameObject);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
@@ -39,5 +39,5 @@ public class SpaceShipControllerV2 : MonoBehaviour
                 Debug.Log("Hit");
             }
         }
-    }
+    }*/
 }

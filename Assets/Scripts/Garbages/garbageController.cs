@@ -14,6 +14,7 @@ public class garbageController : MonoBehaviour
     private Vector3 memoVelocity;
 
     public LevelManager levelManager;
+    private GameObject levelmanage;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class garbageController : MonoBehaviour
         targetGrab = GameObject.Find("targetGrab");
         targetVelocity = GameObject.Find("targetVelocity");
         //levelManager.trashRemaining += 1;
+        //levelmanage = GameObject.Find("LevelManager");
     }
 
     void Update()
