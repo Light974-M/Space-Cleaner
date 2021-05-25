@@ -64,7 +64,7 @@ public class PlayerMove : MonoBehaviour
         if(!StatController.isGameOver && !LevelManager.isPause)
         {
 
-            if (!isDashing)
+            if (!isDashing && !tutoController.isSpeaking)
             {
                 MoveAndStabilize();
 
@@ -79,7 +79,7 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            if (!isGodMod && !StatController.lastChance)
+            if (!isGodMod && !StatController.lastChance && !tutoController.isSpeaking)
             {
                 if(!isRegainDash)
                 {

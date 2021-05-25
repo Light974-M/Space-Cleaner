@@ -34,12 +34,12 @@ public class PauseButtonController : MonoBehaviour
         mainPausePanel.SetActive(false);
         if(!tutoController.isSpeaking)
         {
-            Time.timeScale = 1;
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        
+
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         LevelManager.isPause = false;
         
     }
