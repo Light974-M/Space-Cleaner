@@ -10,6 +10,7 @@ public class HealthBar : MonoBehaviour
     public GameObject image2;
     public GameObject image3;
     public GameObject image4;
+    public AudioManager audioManager;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class HealthBar : MonoBehaviour
             {
                 image2.SetActive(true);
                 if (health <= 20)
+                audioManager.PlayBulletTimeBegin();
                 {
                     image3.SetActive(true);
                     if(health <= 10)
@@ -54,12 +56,12 @@ public class HealthBar : MonoBehaviour
             if (slider.value < health)
             {
                 slider.value += 0.5f;
-                Debug.Log("+1");
+                //Debug.Log("+1");
             }
             else if (slider.value > health)
             {
                 slider.value -= 0.5f;
-                Debug.Log("-1");
+                //Debug.Log("-1");
             }
             else if (slider.value == health)
             {

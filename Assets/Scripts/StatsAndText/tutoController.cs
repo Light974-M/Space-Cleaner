@@ -84,6 +84,7 @@ public class tutoController : MonoBehaviour
         bouttonPass = GameObject.Find("passText");
 
         passButton.onClick.AddListener(Pass);
+        Cursor.visible = true;
 
         
         SwitchSpeaking();

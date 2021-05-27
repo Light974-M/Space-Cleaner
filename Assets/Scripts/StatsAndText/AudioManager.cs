@@ -31,9 +31,13 @@ public class AudioManager : MonoBehaviour
         {
             audioSourceMusic.clip = musicLevel;
         }
-        else if (SceneManager.GetActiveScene().name == "menu")
+        else if (SceneManager.GetActiveScene().name == "menu" | SceneManager.GetActiveScene().name == "Credits")
         {
             audioSourceMusic.clip = musicMenu;
+        }
+        else
+        {
+            Debug.Log("Scene non reconnue par l'AudioManager");
         }
         audioSourceMusic.Play();
     }
@@ -63,25 +67,37 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Begin");
         audioSourceSound.PlayOneShot(bulletTimeBegin);
     }
+
     public void PlayBulletTimeEnd()
     {
         Debug.Log("End");
         audioSourceSound.PlayOneShot(bulletTimeEnd);
     }
 
-    IEnumerator DashCoroutine()
+    /*public IEnumerator DashCoroutine()
     {
+        float timer = 0;
+        bool dashing = true;
         audioSourceSound.PlayOneShot(dashBegin);
-        bool begin = true;
-        yield return new WaitForSeconds(0.5f);
-        while(begin)
+        yield return new WaitForSeconds(0.2f);
+        audioSourceSound.PlayOneShot(dash);
+        while(dashing)
         {
-            audioSourceSound.PlayOneShot(dash);
             if(Input.GetKeyUp(KeyCode.LeftShift))
             {
-                begin = false;
+                audioSourceSound.Stop();
+                dashing = false;
+            }
+            timer += Time.deltaTime;
+            if(timer >= 5)
+            {
+                dashing = false;
             }
         }
         audioSourceSound.PlayOneShot(dashEnd);
+    }*/
+    public void PlayDashBegin()
+    {
+        audioSourceSound.PlayOneShot(dashBegin);
     }
 }

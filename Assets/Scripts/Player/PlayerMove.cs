@@ -92,6 +92,11 @@ public class PlayerMove : MonoBehaviour
                             isDashing = true;
                             dashBarValue -= 0.5f;
                             Dash();
+                            /*if (Input.GetKeyDown(KeyCode.LeftShift))
+                            {
+                                audioManager.PlayDashBegin();
+                                StartCoroutine(audioManager.DashCoroutine());
+                            }*/
                         }
                         else
                         {
@@ -297,7 +302,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (timer3 == 0)
         {
-            audioManager.PlayBulletTimeBegin();
             memoVelocity = rb.velocity;
             rb.AddForce(transform.right * valueOfLastChanceDash);
         }
