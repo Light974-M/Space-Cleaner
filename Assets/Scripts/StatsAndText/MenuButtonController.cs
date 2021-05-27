@@ -44,14 +44,19 @@ public class MenuButtonController : MonoBehaviour
         settingsWindow.SetActive(true);
 
         menuState = 1;
-        //mainCamera.Fonction2();
     }
 
-    /*public void ButtonCredits()
+    public void ButtonCredits()
     {
         bruitage.PlayButton();
         SceneManager.LoadScene("Credits");
-    }*/
+    }
+
+    public void ButtonTuto()
+    {
+        bruitage.PlayButton();
+        SceneManager.LoadScene("tuto");
+    }
 
     public void ButtonQuit()
     {

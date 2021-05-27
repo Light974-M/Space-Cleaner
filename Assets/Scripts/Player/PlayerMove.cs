@@ -205,6 +205,18 @@ public class PlayerMove : MonoBehaviour
                 stabilizeDashing = true;
             }
         }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (rb.velocity.magnitude < 20)
+            {
+                rb.AddForce(transform.forward * -400);
+            }
+
+            if (dashBarValue == 0)
+            {
+                stabilizeDashing = true;
+            }
+        }
         else
         {
             if (Input.GetKey(KeyCode.LeftControl))

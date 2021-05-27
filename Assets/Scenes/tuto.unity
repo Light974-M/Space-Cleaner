@@ -579,6 +579,11 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 688757836}
+    - target: {fileID: 3920651061030261846, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 418094236}
     - target: {fileID: 3920651061030261847, guid: 1214cfb3440706b4ca5d8c50ae904eb2,
         type: 3}
       propertyPath: dashBar
@@ -655,6 +660,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 89656430}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  image3: {fileID: 0}
+  image4: {fileID: 0}
 --- !u!114 &89656430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1297,7 @@ MonoBehaviour:
   wastedGameOver: {fileID: 89535110}
   pauseController: {fileID: 357271649}
   GameOverWindow: {fileID: 938567515}
+  WinWindow: {fileID: 0}
   trashRemaining: 0
   trashRemainingText: {fileID: 1632783567}
   garbageSpawns: []
