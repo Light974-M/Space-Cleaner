@@ -34,6 +34,8 @@ public class PlayerMove : MonoBehaviour
 
     private float velocity;
 
+    public AudioManager audioManager;
+
     //le start.
     private void Start()
     {
@@ -283,6 +285,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (timer3 == 0)
         {
+            audioManager.PlayBulletTimeBegin();
             memoVelocity = rb.velocity;
             rb.AddForce(transform.right * valueOfLastChanceDash);
         }
@@ -303,6 +306,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (timer3 == 110)
         {
+            audioManager.PlayBulletTimeEnd();
             isLastChanceDashing = false;
             dashCoolDown = 1.2f;
         }

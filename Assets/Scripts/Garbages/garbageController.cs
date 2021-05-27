@@ -132,7 +132,6 @@ public class garbageController : MonoBehaviour
     {
         pressToGrabText.SetActive(false);
         animController.SetGrab(false);
-        Debug.Log("Garbage destroyed");
         Destroy(gameObject);
     }
 }
