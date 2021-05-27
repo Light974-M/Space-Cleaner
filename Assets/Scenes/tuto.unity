@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Now, try to stabilize with Ctrl(      )
+  m_text: Now, try to stabilize with Ctrl.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -2584,8 +2584,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have two hands, isn't tat great for a robot ? so, try to grab a garbage
-    with LeftClick(       ).
+  m_text: You have two hands, isn't tat great for a robot ? So, try to grab a garbage
+    with LeftClick.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -3031,7 +3031,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dash(leftShift)
+  m_text: dash (leftShift)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -6357,8 +6357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Now, we'll see if your high-power reactors works, try them with LeftShift(       
-    ).
+  m_text: Now, we'll see if your high-power reactors works, try them with LeftShift.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -6661,7 +6660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: grab(leftClick)
+  m_text: grab (leftClick)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -7939,7 +7938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: stabilize(LeftCtrl)
+  m_text: stabilize (LeftCtrl)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -8207,7 +8206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: move(Z Q D)
+  m_text: move (Z S Q D)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -8459,7 +8458,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: First, move with Z, Q, and D(left joystick).
+  m_text: First, move with Z, S, Q, and D.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -9216,7 +9215,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: If you broke yourself too hard, a bullet time will appear, letting you
-    dash to the left or to the right, with Q or D(left joystick).
+    dash to the left or to the right, with Q or D.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,
@@ -10173,7 +10172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dash(Q/ D)
+  m_text: dash (Q/ D)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03e4a2951f52bdd4fae4c54199b15d68, type: 2}
   m_sharedMaterial: {fileID: 2685964515216365162, guid: 03e4a2951f52bdd4fae4c54199b15d68,

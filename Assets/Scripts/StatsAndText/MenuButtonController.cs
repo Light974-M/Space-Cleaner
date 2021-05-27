@@ -19,7 +19,7 @@ public class MenuButtonController : MonoBehaviour
     void Start()
     {
         menuState = 0;
-
+        Cursor.visible = true;
         PlayerPrefs.SetInt("load", 0);
         Cursor.lockState = CursorLockMode.Confined;
     }

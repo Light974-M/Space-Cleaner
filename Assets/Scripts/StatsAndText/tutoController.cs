@@ -41,6 +41,7 @@ public class tutoController : MonoBehaviour
     private float fixedDeltaTime = 0.02f;
 
     private bool isZ = false;
+    private bool isS = false;
     private bool isQ = false;
     private bool isD = false;
     private bool isLeftCtrl = false;
@@ -301,6 +302,7 @@ public class tutoController : MonoBehaviour
             textConstant3.SetActive(true);
 
             isZ = false;
+            isS = false;
             isQ = false;
             isD = false;
             isLeftCtrl = false;
@@ -498,7 +500,7 @@ public class tutoController : MonoBehaviour
         }
         else if (speakingIndex == 15)
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("menu");
         }
         else if (speakingIndex == 210)
         {
@@ -548,6 +550,10 @@ public class tutoController : MonoBehaviour
             {
                 isZ = true;
             }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                isS = true;
+            }
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 isQ = true;
@@ -557,7 +563,7 @@ public class tutoController : MonoBehaviour
                 isD = true;
             }
 
-            if (isZ && isD && isQ)
+            if (isZ && isS && isD && isQ)
             {
                 if (timer == 200)
                 {
