@@ -36,6 +36,8 @@ public class StatController : MonoBehaviour
 
     public AnimController animController;
 
+    public AudioManager audioManager;
+
     private void Start()
     {
         alveol1 = GameObject.Find("AlveolModifier1");
@@ -145,6 +147,7 @@ public class StatController : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("SpaceShip"))
         {
+            audioManager.PlayImpact();
             LoseLife(20);
             healthBar.SetHealth(life);
             if (life > 0)

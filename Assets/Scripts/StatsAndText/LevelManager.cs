@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
 
     public PauseButtonController pauseController;
     public GameObject GameOverWindow;
+    public GameObject WinWindow;
 
     private int timer = 0;
     private int timer2 = 0;
@@ -132,6 +133,11 @@ public class LevelManager : MonoBehaviour
     public void SetTrashReminding()
     {
         trashRemainingText.text = trashRemaining.ToString();
+        if(trashRemaining <= 0)
+        {
+            audioManager.PlayWin();
+            StartCoroutine(EndCoroutine());
+        }
     }
 
     private void lastChanceMethod()
@@ -182,6 +188,13 @@ public class LevelManager : MonoBehaviour
                 isLastChancePassingToFalse = false;
             }
         }
+    }
+
+    IEnumerator EndCoroutine()
+    {
+        WinWindow.SetActive(true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Menu");
     }
 }
 
