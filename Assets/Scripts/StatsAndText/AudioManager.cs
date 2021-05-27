@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip music;
     // Différents buitages joués
     [Header("Bruitages :")]
-    public AudioClip x;
+    public AudioClip impact;
     public AudioClip buttonClic;
     public AudioClip z;
     [Header("Dash :")]
@@ -24,9 +24,9 @@ public class AudioManager : MonoBehaviour
         audioSourceMusic.Play();
     }
 
-    public void PlaySong()
+    public void PlayImpact()
     {
-        audioSourceSound.PlayOneShot(x);
+        audioSourceSound.PlayOneShot(impact);
     }
 
     public void PlayButton()

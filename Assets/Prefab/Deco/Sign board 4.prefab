@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4615694684658922462}
+  - component: {fileID: 2001214234364474747}
+  - component: {fileID: 6294828354347896163}
+  - component: {fileID: 2375523439722563006}
   m_Layer: 0
   m_Name: Sign board 4
   m_TagString: Untagged
@@ -31,6 +34,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2001214234364474747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966203896057746236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.306221, y: 16.441696, z: 15.652664}
+  m_Center: {x: -0.000012397766, y: 7.720848, z: 0.17037678}
+--- !u!65 &6294828354347896163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966203896057746236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.058671, y: 24.675278, z: 4.337121}
+  m_Center: {x: 0.045096397, y: 28.013596, z: -0.13528872}
+--- !u!65 &2375523439722563006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966203896057746236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.209351, y: 16.15232, z: 15.131261}
+  m_Center: {x: -0.06964493, y: 46.900105, z: 0.00000047683716}
 --- !u!1001 &5609490432387769997
 PrefabInstance:
   m_ObjectHideFlags: 0
