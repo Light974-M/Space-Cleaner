@@ -115,7 +115,7 @@ ModelImporter:
       name: IdleGrab
       takeName: Take 001
       internalID: 0
-      firstFrame: 353
+      firstFrame: 380
       lastFrame: 470
       wrapMode: 0
       orientationOffsetY: 0
