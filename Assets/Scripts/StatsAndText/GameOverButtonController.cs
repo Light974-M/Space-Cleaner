@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameOverButtonController : MonoBehaviour
 {
     public AudioManager audioManager;
-    public string nameOfMainMenu = "Menu 1";
+    public string nameOfMainMenu = "menu";
     public string nameOfLevel = "Level1";
 
     public void Retry()

@@ -85,8 +85,9 @@ public class tutoController : MonoBehaviour
 
         passButton.onClick.AddListener(Pass);
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
 
-        
+
         SwitchSpeaking();
     }
 
@@ -104,6 +105,14 @@ public class tutoController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.P))
             {
                 speakingIndex = 13;
+            }
+        }
+
+        if(isSpeaking)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) | Input.GetKeyDown(KeyCode.Return))
+            {
+                Pass();
             }
         }
     }
@@ -673,7 +682,6 @@ public class tutoController : MonoBehaviour
                     isLooping = true;
                 }
             }
-
             timer++;
         }
     }
